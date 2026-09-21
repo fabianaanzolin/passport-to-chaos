@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, Plane, ArrowUpRight } from "lucide-react";
-import logoAsset from "../assets/passaporte-logo.jpeg.asset.json";
-import travelAsset from "../assets/passaporte-viagem.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,7 +30,7 @@ function Index() {
       <section className="relative mx-auto flex min-h-[88vh] max-w-[1440px] flex-col px-6 pb-14 pt-6 sm:px-10 lg:px-16 lg:pb-20 lg:pt-8">
         <header className="relative z-20 flex items-center justify-between border-b border-border pb-5">
           <img
-            src={logoAsset.url}
+            src="/passaporte-logo.jpeg"
             alt="Passaporte para o Caos"
             className="size-20 rounded-full object-cover sm:size-24"
           />
@@ -53,9 +51,11 @@ function Index() {
             <p className="mb-6 font-sans text-[0.68rem] font-bold uppercase tracking-[0.28em] text-muted-foreground">
               Histórias fora do roteiro
             </p>
+
             <h1 className="font-display text-[clamp(3.6rem,8vw,7.8rem)] leading-[0.86] font-semibold text-balance">
               Viajar também é <span className="text-accent">se perder.</span>
             </h1>
+
             <p className="mt-8 max-w-xl font-sans text-base leading-7 text-muted-foreground sm:text-lg">
               Histórias reais de viagens, perrengues, encontros inesperados e tudo o que não estava no roteiro.
             </p>
@@ -64,6 +64,7 @@ function Index() {
               <p className="font-display text-2xl italic text-foreground sm:text-3xl">
                 Já já esse caos decola.
               </p>
+
               <a
                 href={instagramUrl}
                 target="_blank"
@@ -80,13 +81,15 @@ function Index() {
             <div className="route-line" aria-hidden="true">
               <Plane className="route-plane size-6 fill-current" />
             </div>
+
             <div className="travel-frame">
               <img
-                src={travelAsset.url}
+                src="/passaporte-viagem.jpeg"
                 alt="Ilustração de uma viagem entre avião, navio, malas e passaporte"
                 className="aspect-square w-full object-cover"
               />
             </div>
+
             <div className="absolute -bottom-5 -left-4 rotate-[-5deg] border border-stamp bg-background px-4 py-3 font-sans text-[0.62rem] font-bold uppercase tracking-[0.18em] text-stamp shadow-sm sm:-left-8">
               Destino: inesperado
             </div>
@@ -103,6 +106,7 @@ function Index() {
       <footer className="bg-background px-6 py-10 font-sans sm:px-10">
         <div className="mx-auto flex max-w-[1312px] flex-col gap-3 text-xs text-muted-foreground sm:flex-row sm:items-end sm:justify-between">
           <p>© 2026 Passaporte para o Caos. Todos os direitos reservados.</p>
+
           <p className="text-[0.68rem]">
             Produzido por{" "}
             <a
