@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Plane, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, Youtube, Plane, ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,7 +22,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const instagramUrl = "https://www.instagram.com/";
+const instagramUrl = "https://www.instagram.com/passaporteparaocaos/";
+const facebookUrl = "https://www.facebook.com/profile.php?id=61594587063784";
+const youtubeUrl = "https://www.youtube.com/@PassaporteParaOCaos";
 
 function Index() {
   return (
