@@ -36,16 +36,38 @@ function Index() {
             alt="Passaporte para o Caos"
             className="size-20 rounded-full object-cover sm:size-24"
           />
-          <a
-            href={instagramUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-accent"
-            aria-label="Instagram do Passaporte para o Caos"
-          >
-            <Instagram className="size-4" strokeWidth={1.8} />
-            Instagram
-          </a>
+          <nav className="flex items-center gap-4 sm:gap-6">
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-accent"
+              aria-label="Instagram do Passaporte para o Caos"
+            >
+              <Instagram className="size-4" strokeWidth={1.8} />
+              <span className="hidden sm:inline">Instagram</span>
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-accent"
+              aria-label="Facebook do Passaporte para o Caos"
+            >
+              <Facebook className="size-4" strokeWidth={1.8} />
+              <span className="hidden sm:inline">Facebook</span>
+            </a>
+            <a
+              href={youtubeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-accent"
+              aria-label="YouTube do Passaporte para o Caos"
+            >
+              <Youtube className="size-4" strokeWidth={1.8} />
+              <span className="hidden sm:inline">YouTube</span>
+            </a>
+          </nav>
         </header>
 
         <div className="relative z-10 grid flex-1 items-center gap-10 py-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-6 lg:py-8">
@@ -108,6 +130,39 @@ function Index() {
       <footer className="bg-background px-6 py-10 font-sans sm:px-10">
         <div className="mx-auto flex max-w-[1312px] flex-col gap-3 text-xs text-muted-foreground sm:flex-row sm:items-end sm:justify-between">
           <p>© 2026 Passaporte para o Caos. Todos os direitos reservados.</p>
+
+          <div className="flex items-center gap-4 text-[0.68rem]">
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+              aria-label="Instagram do Passaporte para o Caos"
+            >
+              <Instagram className="size-3.5" strokeWidth={1.8} />
+              Instagram
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+              aria-label="Facebook do Passaporte para o Caos"
+            >
+              <Facebook className="size-3.5" strokeWidth={1.8} />
+              Facebook
+            </a>
+            <a
+              href={youtubeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+              aria-label="YouTube do Passaporte para o Caos"
+            >
+              <Youtube className="size-3.5" strokeWidth={1.8} />
+              YouTube
+            </a>
+          </div>
 
           <p className="text-[0.68rem]">
             Produzido por{" "}
