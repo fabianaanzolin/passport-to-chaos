@@ -54,7 +54,7 @@ function SpotifyIcon({
 
 function Index() {
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+    <main id="topo" className="min-h-screen overflow-hidden bg-background text-foreground">
       <section className="relative mx-auto flex min-h-[88vh] max-w-[1440px] flex-col px-6 pb-14 pt-6 sm:px-10 lg:px-16 lg:pb-20 lg:pt-8">
         <header className="relative z-20 flex items-center justify-between border-b border-border pb-5">
           <img
