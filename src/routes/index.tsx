@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Facebook, Youtube, Plane, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, Youtube, Plane, ArrowUpRight, Headphones, Users, Luggage, Heart } from "lucide-react";
+import adrielePhoto from "../assets/adriele.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -159,6 +160,93 @@ function Index() {
         <p className="mx-auto max-w-4xl text-center font-display text-2xl leading-relaxed text-foreground sm:text-4xl sm:leading-snug">
           Algumas viagens viram lembranças. Outras viram histórias. As melhores talvez sejam justamente aquelas que não saíram como planejado.
         </p>
+      </section>
+
+      <section id="sobre" className="bg-background px-6 py-16 sm:px-10 lg:py-24">
+        <div className="mx-auto grid max-w-[1312px] gap-12 lg:grid-cols-[0.82fr_1.15fr_0.68fr] lg:gap-10 lg:items-start">
+          {/* Foto da Adriele */}
+          <div className="relative mx-auto w-full max-w-[320px] lg:mx-0">
+            <figure className="relative rotate-[-2.5deg]">
+              <div className="border border-border bg-primary-foreground p-2.5 shadow-[0_22px_56px_-32px_color-mix(in_oklab,var(--foreground)_45%,transparent)]">
+                <img
+                  src={adrielePhoto.url}
+                  alt="Adriele, criadora do Passaporte para o Caos"
+                  className="aspect-square w-full object-cover"
+                />
+                <figcaption className="pt-3 pb-1 text-center font-display text-lg italic text-muted-foreground">
+                  Viajar é colecionar histórias.{" "}
+                  <span className="text-accent">&#9825;</span>
+                </figcaption>
+              </div>
+              <div className="absolute -top-3 -right-3 rotate-[8deg] border border-stamp bg-background px-2.5 py-1.5 font-sans text-[0.55rem] font-bold uppercase tracking-[0.16em] text-stamp shadow-sm">
+                Passaporte
+              </div>
+            </figure>
+          </div>
+
+          {/* Apresentação */}
+          <div className="lg:pt-4">
+            <p className="mb-5 font-sans text-[0.68rem] font-bold uppercase tracking-[0.28em] text-muted-foreground">
+              Sobre
+            </p>
+            <h2 className="font-display text-[clamp(2.6rem,5vw,4rem)] leading-[0.92] font-semibold text-balance">
+              O Passaporte para o Caos
+            </h2>
+            <div className="mt-6 max-w-xl space-y-4 font-sans text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+              <p>
+                Eu sou a Adriele, apaixonada por viagens, histórias e pessoas.
+              </p>
+              <p>
+                No Passaporte para o Caos, compartilho relatos reais — meus, de convidados e da comunidade — mostrando que viajar é muito mais do que fotos bonitas. É se permitir viver o inesperado, aprender com o caos e colecionar experiências que se transformam em histórias.
+              </p>
+            </div>
+            <a
+              href="#sobre"
+              className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border bg-background px-6 font-sans text-sm font-bold uppercase tracking-[0.14em] text-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              aria-label="Conheça mais sobre o Passaporte para o Caos"
+            >
+              Conheça mais
+            </a>
+          </div>
+
+          {/* Pilares do projeto */}
+          <div className="lg:pt-4">
+            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+              <li className="flex items-center gap-3.5">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-secondary text-foreground">
+                  <Headphones className="size-[1.15rem]" strokeWidth={1.6} />
+                </span>
+                <span className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+                  Podcast
+                </span>
+              </li>
+              <li className="flex items-center gap-3.5">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-secondary text-foreground">
+                  <Users className="size-[1.15rem]" strokeWidth={1.6} />
+                </span>
+                <span className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+                  Comunidade
+                </span>
+              </li>
+              <li className="flex items-center gap-3.5">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-secondary text-foreground">
+                  <Luggage className="size-[1.15rem]" strokeWidth={1.6} />
+                </span>
+                <span className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+                  Viagens
+                </span>
+              </li>
+              <li className="flex items-center gap-3.5">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-secondary text-foreground">
+                  <Heart className="size-[1.15rem]" strokeWidth={1.6} />
+                </span>
+                <span className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+                  Histórias reais
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section className="bg-background px-6 py-16 sm:px-10 lg:py-24">
