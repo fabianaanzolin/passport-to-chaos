@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Facebook, Youtube, Plane, ArrowUpRight } from "lucide-react";
+import { Instagram, Facebook, Youtube, Plane, ArrowUpRight, Headphones, Users, Luggage, Heart } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
