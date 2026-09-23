@@ -112,13 +112,25 @@ function Index() {
               </p>
 
               <a
+                href={spotifyUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Ouça Passaporte para o Caos no Spotify"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-primary px-7 font-sans text-sm font-bold text-primary-foreground shadow-[0_18px_44px_-22px_color-mix(in_oklab,var(--foreground)_52%,transparent)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              >
+                <SpotifyIcon className="size-5" />
+                Ouça no Spotify
+              </a>
+
+              <a
                 href={instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-primary px-6 font-sans text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                className="inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+                aria-label="Acompanhe o Passaporte para o Caos no Instagram"
               >
                 Acompanhe no Instagram
-                <ArrowUpRight className="size-4" />
+                <ArrowUpRight className="size-3.5" />
               </a>
             </div>
           </div>
