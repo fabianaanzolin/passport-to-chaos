@@ -293,7 +293,7 @@ function Index() {
                 Tem uma história para contar?
               </h2>
 
-              <div className="mt-7 space-y-5 font-sans text-base leading-7 text-primary-foreground/90 sm:text-lg sm:leading-8 [text-shadow:0_1px_10px_color-mix(in_oklab,black_55%,transparent)]">
+              <div className="mt-6 space-y-4 font-sans text-base leading-7 text-primary-foreground/90 sm:text-lg sm:leading-8 [text-shadow:0_1px_10px_color-mix(in_oklab,black_55%,transparent)]">
                 <p>
                   Você viveu uma história que parece mentira? Um perrengue inesquecível? Uma situação absurda a bordo? Um encontro que saiu completamente do roteiro? Então talvez essa história pertença ao Passaporte para o Caos.
                 </p>
