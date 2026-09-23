@@ -260,28 +260,11 @@ function Index() {
         </div>
       </section>
 
-      {/* Banner panorâmico — Envie sua história */}
+      {/* Bloco editorial — Envie sua história */}
       <section id="envie-sua-historia" className="border-y border-border bg-primary">
-        <div className="relative isolate overflow-hidden">
-          {coastPhotoUrl ? (
-            <img
-              src={coastPhotoUrl}
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 size-full object-cover"
-            />
-          ) : (
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 size-full bg-[linear-gradient(160deg,color-mix(in_oklab,var(--primary)_88%,var(--accent)),color-mix(in_oklab,var(--primary)_96%,black))]"
-            />
-          )}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--primary)_78%,transparent),color-mix(in_oklab,var(--primary)_35%,transparent)_75%)]"
-          />
-
-          <div className="relative mx-auto grid max-w-[1312px] gap-12 px-6 py-20 sm:px-10 lg:grid-cols-[1.2fr_0.7fr] lg:items-center lg:gap-16 lg:py-28">
+        <div className="mx-auto max-w-[1312px] px-6 py-16 sm:px-10 lg:py-20">
+          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16">
+            {/* Conteúdo textual à esquerda */}
             <div className="max-w-2xl text-primary-foreground">
               <p className="mb-5 font-sans text-[0.68rem] font-bold uppercase tracking-[0.28em] text-primary-foreground/70">
                 Envie sua história
@@ -319,22 +302,48 @@ function Index() {
               </div>
             </div>
 
-            {/* Anotação de viagem */}
-            <div className="lg:justify-self-end lg:text-right">
-              <p className="font-display text-[clamp(1.9rem,4vw,3rem)] italic leading-[1.05] text-primary-foreground">
-                Todo caos
-                <br />
-                rende uma
-                <br />
-                boa história.
-              </p>
-              <span
-                className="mt-4 block h-px w-24 bg-primary-foreground/40 lg:ml-auto"
-                aria-hidden="true"
-              />
-              <span className="mt-3 block text-lg text-accent lg:text-right" aria-hidden="true">
-                &#9825;
-              </span>
+            {/* Paisagem + frase editorial à direita */}
+            <div className="lg:justify-self-end">
+              <div className="mx-auto w-full max-w-[460px]">
+                <div className="relative h-[220px] w-full overflow-hidden sm:h-[280px] lg:h-[340px]">
+                  {coastPhotoUrl ? (
+                    <img
+                      src={coastPhotoUrl}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 size-full object-cover"
+                      style={{ objectPosition: "60% 38%" }}
+                    />
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 size-full bg-[linear-gradient(160deg,color-mix(in_oklab,var(--primary)_88%,var(--accent)),color-mix(in_oklab,var(--primary)_96%,black))]"
+                    />
+                  )}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--primary)_62%,transparent),color-mix(in_oklab,var(--primary)_12%,transparent)_60%)]"
+                  />
+                </div>
+
+                <p className="mt-6 text-right font-display text-[clamp(1.5rem,3.4vw,2.3rem)] italic leading-[1.05] text-primary-foreground">
+                  Todo caos
+                  <br />
+                  rende uma
+                  <br />
+                  boa história.
+                </p>
+                <span
+                  className="mt-3 ml-auto block h-px w-24 bg-primary-foreground/40"
+                  aria-hidden="true"
+                />
+                <span
+                  className="mt-2 block text-right text-lg text-accent"
+                  aria-hidden="true"
+                >
+                  &#9825;
+                </span>
+              </div>
             </div>
           </div>
         </div>
