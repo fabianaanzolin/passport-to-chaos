@@ -22,9 +22,31 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const spotifyUrl =
+  "https://open.spotify.com/show/3pnAt7AZGwB2hoYEs45d7U?si=RueEwUTOS76nLt0odnxIRw&utm_source=copy-link";
 const instagramUrl = "https://www.instagram.com/passaporteparaocaos/";
 const facebookUrl = "https://www.facebook.com/profile.php?id=61594587063784";
 const youtubeUrl = "https://www.youtube.com/@PassaporteParaOCaos";
+
+function SpotifyIcon({
+  className,
+  strokeWidth = 0,
+}: {
+  className?: string;
+  strokeWidth?: number;
+}) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      strokeWidth={strokeWidth}
+    >
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.882 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.739.30 1.021zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C9.6 11.22 3.84 11.7 0 13.8c-.48.181-1.021-.06-1.2-.6-.18-.48.06-1.021.6-1.2 4.2-2.4 10.56-3 14.88-.72.48.3.6 1.02.3 1.5z" />
+    </svg>
+  );
+}
 
 function Index() {
   return (
