@@ -281,7 +281,7 @@ function Index() {
         </div>
 
         {/* Conteúdo sobre a fotografia */}
-        <div className="relative z-10 mx-auto flex min-h-[480px] max-w-[1312px] flex-col justify-center px-6 py-16 sm:min-h-[400px] sm:px-10 lg:min-h-[450px] lg:py-20">
+        <div className="relative z-10 mx-auto flex min-h-[480px] max-w-[1312px] flex-col justify-center px-6 py-12 sm:min-h-[400px] sm:px-10 lg:min-h-[450px] lg:py-10">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16">
             {/* Conteúdo textual à esquerda */}
             <div className="max-w-2xl text-primary-foreground">
