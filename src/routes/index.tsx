@@ -161,6 +161,58 @@ function Index() {
         </p>
       </section>
 
+      <section className="bg-background px-6 py-16 sm:px-10 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-6 font-sans text-[0.68rem] font-bold uppercase tracking-[0.28em] text-muted-foreground">
+            Envie sua história
+          </p>
+
+          <h2 className="font-display text-[clamp(2.4rem,6vw,4.2rem)] leading-[0.95] font-semibold text-balance">
+            Tem uma história para contar?
+          </h2>
+
+          <div className="mx-auto mt-8 max-w-2xl space-y-5 font-sans text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+            <p>
+              Você viveu uma história que parece mentira? Um perrengue inesquecível? Uma situação absurda a bordo? Um encontro que saiu completamente do roteiro? Então talvez essa história pertença ao Passaporte para o Caos.
+            </p>
+            <p>
+              Enquanto nosso espaço para envio de histórias não fica pronto, você já pode mandar a sua diretamente para a gente.
+            </p>
+          </div>
+
+          <div className="mt-10 flex flex-col items-center gap-4">
+            <a
+              href="mailto:contato@passaporteparaocaos.com.br?subject=Minha%20hist%C3%B3ria%20para%20o%20Passaporte%20para%20o%20Caos"
+              className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-primary px-7 font-sans text-sm font-bold text-primary-foreground shadow-[0_18px_44px_-22px_color-mix(in_oklab,var(--foreground)_52%,transparent)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              aria-label="Enviar minha história por e-mail para o Passaporte para o Caos"
+            >
+              Enviar minha história
+            </a>
+
+            <p className="font-sans text-sm text-muted-foreground">
+              <a
+                href="mailto:contato@passaporteparaocaos.com.br"
+                className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+              >
+                contato@passaporteparaocaos.com.br
+              </a>
+            </p>
+          </div>
+
+          <div className="mx-auto mt-14 max-w-2xl border-t border-border pt-8 text-left font-sans text-[0.82rem] leading-relaxed text-muted-foreground sm:text-sm sm:leading-relaxed">
+            <p className="mb-3">
+              Importante: o envio da história não significa publicação automática. A equipe do Passaporte para o Caos analisará o material antes de utilizá-lo.
+            </p>
+            <p className="mb-3">
+              Para preservar a identidade do autor ou de outras pessoas mencionadas, informações identificáveis poderão ser alteradas, omitidas ou substituídas durante a edição, incluindo nomes, apelidos, cargos, empresas, navios, cidades, locais, datas, rotas ou outros detalhes que possam permitir a identificação de uma pessoa.
+            </p>
+            <p>
+              Quando necessário, a história também poderá ser adaptada editorialmente para preservar o anonimato, sem alterar o sentido essencial do relato.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-background px-6 py-10 font-sans sm:px-10">
         <div className="mx-auto flex max-w-[1312px] flex-col gap-3 text-xs text-muted-foreground sm:flex-row sm:items-end sm:justify-between">
           <p>© 2026 Passaporte para o Caos. Todos os direitos reservados.</p>
