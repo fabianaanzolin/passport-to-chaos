@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, Facebook, Youtube, Plane, ArrowUpRight, Headphones, Users, Luggage, Heart } from "lucide-react";
+import adrielePhoto from "../assets/adriele.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -167,12 +168,11 @@ function Index() {
           <div className="relative mx-auto w-full max-w-[320px] lg:mx-0">
             <figure className="relative rotate-[-2.5deg]">
               <div className="border border-border bg-primary-foreground p-2.5 shadow-[0_22px_56px_-32px_color-mix(in_oklab,var(--foreground)_45%,transparent)]">
-                {/* Placeholder — trocar por <img src=... /> quando a foto da Adriele for enviada */}
-                <div className="flex aspect-[3/4] w-full items-center justify-center overflow-hidden bg-secondary">
-                  <span className="font-sans text-[0.62rem] font-bold uppercase tracking-[0.22em] text-muted-foreground/50">
-                    Adriele
-                  </span>
-                </div>
+                <img
+                  src={adrielePhoto.url}
+                  alt="Adriele, criadora do Passaporte para o Caos"
+                  className="aspect-square w-full object-cover"
+                />
                 <figcaption className="pt-3 pb-1 text-center font-display text-lg italic text-muted-foreground">
                   Viajar é colecionar histórias.{" "}
                   <span className="text-accent">&#9825;</span>
