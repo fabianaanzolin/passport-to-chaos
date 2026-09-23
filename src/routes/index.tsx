@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, Facebook, Youtube, Plane, ArrowUpRight, Headphones, Users, Luggage, Heart, Send } from "lucide-react";
 import adrielePhoto from "../assets/adriele.jpeg.asset.json";
+import coastPhoto from "../assets/litoral.png.asset.json";
 
-// Fotografia de litoral do banner "Envie sua história" (a ser fornecida).
-const coastPhotoUrl: string | null = null;
+// Fotografia de litoral do banner "Envie sua história".
+const coastPhotoUrl: string | null = coastPhoto.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
