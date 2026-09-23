@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Facebook, Youtube, Plane, ArrowUpRight, Headphones, Users, Luggage, Heart } from "lucide-react";
+import { Instagram, Facebook, Youtube, Plane, ArrowUpRight, Headphones, Users, Luggage, Heart, Send } from "lucide-react";
 import adrielePhoto from "../assets/adriele.jpeg.asset.json";
+
+// Fotografia de litoral do banner "Envie sua história" (a ser fornecida).
+const coastPhotoUrl: string | null = null;
 
 export const Route = createFileRoute("/")({
   head: () => ({
