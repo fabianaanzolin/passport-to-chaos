@@ -22,9 +22,31 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const spotifyUrl =
+  "https://open.spotify.com/show/3pnAt7AZGwB2hoYEs45d7U?si=RueEwUTOS76nLt0odnxIRw&utm_source=copy-link";
 const instagramUrl = "https://www.instagram.com/passaporteparaocaos/";
 const facebookUrl = "https://www.facebook.com/profile.php?id=61594587063784";
 const youtubeUrl = "https://www.youtube.com/@PassaporteParaOCaos";
+
+function SpotifyIcon({
+  className,
+  strokeWidth = 0,
+}: {
+  className?: string;
+  strokeWidth?: number;
+}) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      strokeWidth={strokeWidth}
+    >
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.882 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.739.30 1.021zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C9.6 11.22 3.84 11.7 0 13.8c-.48.181-1.021-.06-1.2-.6-.18-.48.06-1.021.6-1.2 4.2-2.4 10.56-3 14.88-.72.48.3.6 1.02.3 1.5z" />
+    </svg>
+  );
+}
 
 function Index() {
   return (
@@ -90,18 +112,30 @@ function Index() {
               </p>
 
               <a
+                href={spotifyUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Ouça Passaporte para o Caos no Spotify"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-primary px-7 font-sans text-sm font-bold text-primary-foreground shadow-[0_18px_44px_-22px_color-mix(in_oklab,var(--foreground)_52%,transparent)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              >
+                <SpotifyIcon className="size-5" />
+                Ouça no Spotify
+              </a>
+
+              <a
                 href={instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-primary px-6 font-sans text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                className="inline-flex items-center gap-1.5 font-sans text-sm font-medium text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+                aria-label="Acompanhe o Passaporte para o Caos no Instagram"
               >
                 Acompanhe no Instagram
-                <ArrowUpRight className="size-4" />
+                <ArrowUpRight className="size-3.5" />
               </a>
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[560px] lg:ml-auto">
+          <div className="relative mt-8 mx-auto w-full max-w-[560px] lg:ml-auto lg:mt-0">
             <div className="route-line" aria-hidden="true">
               <Plane className="route-plane size-6 fill-current" />
             </div>
@@ -133,6 +167,16 @@ function Index() {
 
           <div className="flex items-center gap-4 text-[0.68rem]">
             <a
+              href={spotifyUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent"
+              aria-label="Ouça Passaporte para o Caos no Spotify"
+            >
+              <SpotifyIcon className="size-3.5" />
+              Spotify
+            </a>
+            <a
               href={instagramUrl}
               target="_blank"
               rel="noreferrer"
@@ -143,16 +187,6 @@ function Index() {
               Instagram
             </a>
             <a
-              href={facebookUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
-              aria-label="Facebook do Passaporte para o Caos"
-            >
-              <Facebook className="size-3.5" strokeWidth={1.8} />
-              Facebook
-            </a>
-            <a
               href={youtubeUrl}
               target="_blank"
               rel="noreferrer"
@@ -161,6 +195,16 @@ function Index() {
             >
               <Youtube className="size-3.5" strokeWidth={1.8} />
               YouTube
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+              aria-label="Facebook do Passaporte para o Caos"
+            >
+              <Facebook className="size-3.5" strokeWidth={1.8} />
+              Facebook
             </a>
           </div>
 
