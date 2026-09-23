@@ -167,6 +167,16 @@ function Index() {
 
           <div className="flex items-center gap-4 text-[0.68rem]">
             <a
+              href={spotifyUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent"
+              aria-label="Ouça Passaporte para o Caos no Spotify"
+            >
+              <SpotifyIcon className="size-3.5" />
+              Spotify
+            </a>
+            <a
               href={instagramUrl}
               target="_blank"
               rel="noreferrer"
@@ -177,16 +187,6 @@ function Index() {
               Instagram
             </a>
             <a
-              href={facebookUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
-              aria-label="Facebook do Passaporte para o Caos"
-            >
-              <Facebook className="size-3.5" strokeWidth={1.8} />
-              Facebook
-            </a>
-            <a
               href={youtubeUrl}
               target="_blank"
               rel="noreferrer"
@@ -195,6 +195,16 @@ function Index() {
             >
               <Youtube className="size-3.5" strokeWidth={1.8} />
               YouTube
+            </a>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+              aria-label="Facebook do Passaporte para o Caos"
+            >
+              <Facebook className="size-3.5" strokeWidth={1.8} />
+              Facebook
             </a>
           </div>
 
