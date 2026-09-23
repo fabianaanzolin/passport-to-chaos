@@ -302,7 +302,7 @@ function Index() {
                 </p>
               </div>
 
-              <div className="mt-10 flex flex-col items-start gap-4">
+              <div className="mt-8 flex flex-col items-start gap-4">
                 <a
                   href="mailto:contato@passaporteparaocaos.com.br?subject=Minha%20hist%C3%B3ria%20para%20o%20Passaporte%20para%20o%20Caos"
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-accent px-7 font-sans text-sm font-bold text-primary-foreground shadow-[0_18px_44px_-20px_color-mix(in_oklab,black_65%,transparent)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
