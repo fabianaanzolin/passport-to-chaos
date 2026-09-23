@@ -135,7 +135,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[560px] lg:ml-auto">
+          <div className="relative mt-8 mx-auto w-full max-w-[560px] lg:ml-auto lg:mt-0">
             <div className="route-line" aria-hidden="true">
               <Plane className="route-plane size-6 fill-current" />
             </div>
