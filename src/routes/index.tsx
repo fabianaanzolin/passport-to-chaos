@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content: "Viajar também é se perder. Já já esse caos decola.",
+        content: "Viajar também é se perder. O caos já começou.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -97,7 +97,7 @@ function Index() {
 
             <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7">
               <p className="font-display text-2xl italic text-foreground sm:text-3xl">
-                Já já esse caos decola.
+                O caos já começou.
               </p>
 
               <a
