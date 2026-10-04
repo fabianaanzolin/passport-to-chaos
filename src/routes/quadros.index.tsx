@@ -65,7 +65,7 @@ function QuadrosPage() {
               className="w-full -rotate-2 rounded-full shadow-[0_30px_60px_-34px_color-mix(in_oklab,var(--foreground)_60%,transparent)]"
             />
             <Postmark className="absolute -right-2 -top-2 rotate-12 border-stamp/50 bg-secondary/80 text-stamp sm:-right-4">
-              {"Quadro\n01"}
+              Quadro 01
             </Postmark>
           </div>
 
