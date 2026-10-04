@@ -88,7 +88,7 @@ function EpisodePage() {
               <div>
                 <dt className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">Quadro</dt>
                 <dd className="mt-1">
-                  <Link to={`/quadros/${quadro.slug}`} className="font-semibold text-stamp hover:text-accent">
+                  <Link to={quadro.slug === "turbulencia" ? "/quadros/turbulencia" : "/quadros/vida-a-bordo"} className="font-semibold text-stamp hover:text-accent">
                     {quadro.name}
                   </Link>
                 </dd>

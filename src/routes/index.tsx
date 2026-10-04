@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteHeader, SiteFooter } from "@/components/site/SiteChrome";
 import {
   Instagram,
   Facebook,
@@ -75,49 +76,8 @@ function Index() {
       className="min-h-screen overflow-hidden bg-background text-foreground"
     >
       {/* HERO */}
-      <section className="relative mx-auto flex min-h-[88vh] max-w-[1440px] flex-col px-6 pb-14 pt-6 sm:px-10 lg:px-16 lg:pb-20 lg:pt-8">
-        <header className="relative z-20 flex items-center justify-between border-b border-border pb-5">
-          <img
-            src="/passaporte-logo.jpeg"
-            alt="Passaporte para o Caos"
-            className="size-20 rounded-full object-cover sm:size-24"
-          />
-
-          <nav className="flex items-center gap-4 sm:gap-6">
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-accent"
-              aria-label="Instagram do Passaporte para o Caos"
-            >
-              <Instagram className="size-4" strokeWidth={1.8} />
-              <span className="hidden sm:inline">Instagram</span>
-            </a>
-
-            <a
-              href={facebookUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-accent"
-              aria-label="Facebook do Passaporte para o Caos"
-            >
-              <Facebook className="size-4" strokeWidth={1.8} />
-              <span className="hidden sm:inline">Facebook</span>
-            </a>
-
-            <a
-              href={youtubeUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-accent"
-              aria-label="YouTube do Passaporte para o Caos"
-            >
-              <Youtube className="size-4" strokeWidth={1.8} />
-              <span className="hidden sm:inline">YouTube</span>
-            </a>
-          </nav>
-        </header>
+      <SiteHeader />
+      <section className="relative mx-auto flex min-h-[88vh] max-w-[1440px] flex-col px-6 pb-14 sm:px-10 lg:px-16 lg:pb-20">
 
         <div className="relative z-10 grid flex-1 items-center gap-10 py-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-6 lg:py-8">
           <div className="relative z-10 max-w-3xl lg:py-12">
@@ -244,13 +204,13 @@ function Index() {
               </p>
             </div>
 
-            <a
-              href="#sobre"
+            <Link
+              to="/sobre"
               className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border bg-background px-6 font-sans text-sm font-bold uppercase tracking-[0.14em] text-foreground transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
               aria-label="Conheça mais sobre o Passaporte para o Caos"
             >
               Conheça mais
-            </a>
+            </Link>
           </div>
 
           {/* Pilares */}
@@ -429,127 +389,7 @@ function Index() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-background px-6 py-14 font-sans sm:px-10">
-        <div className="mx-auto flex max-w-[1312px] flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
-          <img
-            src="/passaporte-logo.jpeg"
-            alt="Passaporte para o Caos"
-            className="size-16 rounded-full object-cover sm:size-20"
-          />
-
-          <nav
-            className="flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold uppercase tracking-[0.16em] text-foreground"
-            aria-label="Navegação do rodapé"
-          >
-            <a
-              href="#topo"
-              className="transition-colors hover:text-accent"
-            >
-              Início
-            </a>
-
-            <a
-              href={spotifyUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors hover:text-accent"
-              aria-label="Episódios no Spotify"
-            >
-              Episódios
-            </a>
-
-            <a
-              href="#envie-sua-historia"
-              className="transition-colors hover:text-accent"
-            >
-              Envie sua história
-            </a>
-
-            <a
-              href="#sobre"
-              className="transition-colors hover:text-accent"
-            >
-              Sobre
-            </a>
-
-            <a
-              href="mailto:contato@passaporteparaocaos.com.br"
-              className="transition-colors hover:text-accent"
-            >
-              Contato
-            </a>
-          </nav>
-
-          <div className="flex items-center gap-4 text-muted-foreground">
-            <a
-              href={spotifyUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-foreground transition-colors hover:text-accent"
-              aria-label="Ouça Passaporte para o Caos no Spotify"
-            >
-              <SpotifyIcon className="size-[1.15rem]" />
-            </a>
-
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors hover:text-accent"
-              aria-label="Instagram do Passaporte para o Caos"
-            >
-              <Instagram
-                className="size-[1.05rem]"
-                strokeWidth={1.7}
-              />
-            </a>
-
-            <a
-              href={youtubeUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors hover:text-accent"
-              aria-label="YouTube do Passaporte para o Caos"
-            >
-              <Youtube
-                className="size-[1.05rem]"
-                strokeWidth={1.7}
-              />
-            </a>
-
-            <a
-              href={facebookUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors hover:text-accent"
-              aria-label="Facebook do Passaporte para o Caos"
-            >
-              <Facebook
-                className="size-[1.05rem]"
-                strokeWidth={1.7}
-              />
-            </a>
-          </div>
-
-          <div className="text-xs text-muted-foreground lg:text-right">
-            <p>© 2026 Passaporte para o Caos</p>
-            <p>Todos os direitos reservados.</p>
-
-            <p className="mt-3 text-[0.68rem]">
-              Produzido por{" "}
-              <a
-                href="https://www.anzolinconsultoria.com.br"
-                target="_blank"
-                rel="noreferrer"
-                className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
-              >
-                Anzolin Consultoria
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
