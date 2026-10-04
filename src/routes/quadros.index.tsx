@@ -25,6 +25,7 @@ function QuadrosPage() {
 
       <section className="mx-auto grid max-w-[1312px] gap-6 px-6 pb-20 sm:px-10 lg:grid-cols-2">
         <article className="flex flex-col border border-border bg-secondary p-8 sm:p-10 lg:min-h-[520px]">
+          <img src={vida.image} alt="Selo do quadro Vida a Bordo" className="mb-6 w-32 rounded-full sm:w-40" />
           <p className="font-sans text-[0.62rem] font-bold uppercase tracking-[0.24em] text-stamp">{vida.kicker}</p>
           <h2 className="mt-6 font-display text-[clamp(2.8rem,6vw,4.8rem)] leading-[0.9] font-semibold">{vida.name}</h2>
           <p className="mt-6 max-w-md font-sans text-base leading-7 text-muted-foreground sm:text-lg">{vida.description}</p>
@@ -40,6 +41,7 @@ function QuadrosPage() {
           <span className="pointer-events-none absolute right-6 top-8 rotate-[-8deg] border-2 border-accent px-4 py-2 font-sans text-xs font-bold uppercase tracking-[0.2em] text-accent">
             Fora do roteiro
           </span>
+          <img src={turb.image} alt="Selo do quadro Turbulência" className="mb-6 w-32 rounded-full sm:w-40" />
           <p className="font-sans text-[0.62rem] font-bold uppercase tracking-[0.24em] text-primary-foreground/70">{turb.kicker}</p>
           <h2 className="mt-6 -skew-x-6 font-display text-[clamp(2.8rem,6vw,4.8rem)] leading-[0.9] font-semibold">
             {turb.name}<span className="text-accent">.</span>

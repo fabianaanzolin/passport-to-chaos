@@ -11,6 +11,7 @@ export const quadros: Record<
     description: string;
     topics: string[];
     cta: string;
+    image: string;
   }
 > = {
   "vida-a-bordo": {
@@ -32,6 +33,7 @@ export const quadros: Record<
       "Situações absurdas",
     ],
     cta: "Explorar Vida a Bordo",
+    image: "/quadros/vida-a-bordo.jpeg",
   },
   turbulencia: {
     slug: "turbulencia",
@@ -50,6 +52,7 @@ export const quadros: Record<
       "Fora do roteiro",
     ],
     cta: "Entrar na Turbulência",
+    image: "/quadros/turbulencia.jpeg",
   },
 };
 
@@ -69,49 +72,31 @@ export type Episode = {
   demo?: boolean;
 };
 
-/*
- * ==================== CONTEÚDO DE DEMONSTRAÇÃO ====================
- * Os episódios abaixo são placeholders temporários (demo: true).
- * Substitua pelos episódios reais: número, título, descrição, data,
- * quadro, links do Spotify/YouTube e capa (opcional, em /public).
- * ==================================================================
- */
+// Mais recente primeiro. Numeração oficial é cronológica.
 export const episodes: Episode[] = [
   {
-    slug: "001-episodio-de-demonstracao",
-    number: "001",
-    title: "Título do episódio (demonstração)",
-    description:
-      "Descrição curta do episódio. Este card é um exemplo temporário e será substituído pelo primeiro episódio real.",
-    date: "Em breve",
-    quadro: "vida-a-bordo",
-    categories: ["Navio", "Bastidores"],
-    spotifyUrl,
-    demo: true,
-  },
-  {
-    slug: "002-episodio-de-demonstracao",
+    slug: "002-toxico-a-bordo",
     number: "002",
-    title: "Título do episódio (demonstração)",
-    description:
-      "Descrição curta do episódio. Conteúdo de exemplo para visualizar a estrutura da página.",
-    date: "Em breve",
-    quadro: "turbulencia",
-    categories: ["Avião", "Perrengues"],
-    spotifyUrl,
-    demo: true,
+    title: "Tóxico a Bordo",
+    description: "Uma história real sobre amor, manipulação e a coragem de recomeçar.",
+    date: "29 de setembro",
+    quadro: "vida-a-bordo",
+    categories: ["Navio", "Relacionamentos"],
+    spotifyUrl:
+      "https://open.spotify.com/episode/5oURT5qlWtPvakpfKvAUCm?si=THj312MoSV6xnuNshaOJQw&utm_source=native-share-menu&nd=1&dlsi=c17838cfa3e24b1f",
+    cover: "/episodios/toxico-a-bordo.jpeg",
   },
   {
-    slug: "003-episodio-de-demonstracao",
-    number: "003",
-    title: "Título do episódio (demonstração)",
-    description:
-      "Descrição curta do episódio. Conteúdo de exemplo para visualizar a estrutura da página.",
-    date: "Em breve",
+    slug: "001-saco-proibido",
+    number: "001",
+    title: "Saco Proibido",
+    description: "O primeiro episódio do quadro Vida a Bordo.",
+    date: "23 de setembro",
     quadro: "vida-a-bordo",
-    categories: ["Relacionamentos"],
+    categories: ["Navio"],
+    // Link individual ainda não fornecido: usa o perfil oficial do podcast.
     spotifyUrl,
-    demo: true,
+    cover: "/quadros/vida-a-bordo.jpeg",
   },
 ];
 
