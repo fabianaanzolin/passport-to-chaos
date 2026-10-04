@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { episodes, quadros, type QuadroSlug } from "@/lib/content";
 import { Eyebrow, PageShell, StoryInvite } from "./SiteChrome";
-import { EpisodeCard } from "./EpisodeCard";
+import { EpisodeCard, episodeGridClass } from "./EpisodeCard";
 
 export function QuadroPage({ slug }: { slug: QuadroSlug }) {
   const q = quadros[slug];
@@ -40,7 +40,7 @@ export function QuadroPage({ slug }: { slug: QuadroSlug }) {
       <section className="mx-auto max-w-[1312px] px-6 py-16 sm:px-10 lg:py-20">
         <h2 className="mb-8 border-b border-border pb-4 font-display text-3xl font-semibold">Episódios do quadro</h2>
         {list.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className={episodeGridClass}>
             {list.map((ep) => (
               <EpisodeCard key={ep.slug} episode={ep} />
             ))}
