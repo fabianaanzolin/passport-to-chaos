@@ -17,7 +17,7 @@ export const Route = createFileRoute("/quadros/")({
 /** Subtle wave texture (Vida a Bordo) — decorative, kept away from text. */
 function Waves({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 400 80" fill="none" aria-hidden="true" className={className}>
+    <svg viewBox="0 0 400 60" fill="none" aria-hidden="true" className={className} preserveAspectRatio="none">
       {[10, 30, 50].map((y) => (
         <path key={y} d={`M0 ${y} q25 -12 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0`} stroke="currentColor" strokeWidth="1.2" />
       ))}
@@ -38,7 +38,7 @@ function Postmark({ children, className = "" }: { children: string; className?: 
   return (
     <span
       aria-hidden="true"
-      className={`pointer-events-none inline-flex size-24 items-center justify-center rounded-full border-2 border-dashed text-center font-sans text-[0.55rem] font-bold uppercase leading-tight tracking-[0.18em] ${className}`}
+      className={`pointer-events-none hidden size-24 sm:inline-flex items-center justify-center rounded-full border-2 border-dashed text-center font-sans text-[0.55rem] font-bold uppercase leading-tight tracking-[0.18em] ${className}`}
     >
       {children}
     </span>
@@ -56,7 +56,7 @@ function QuadrosPage() {
 
       {/* VIDA A BORDO — arte à esquerda, texto à direita */}
       <section className="relative overflow-hidden border-t border-border bg-secondary">
-        <Waves className="pointer-events-none absolute -bottom-2 left-0 w-full text-stamp/15" />
+        <Waves className="pointer-events-none absolute bottom-0 left-0 h-10 w-full text-stamp/15" preserveAspectRatio="none" />
         <div className="relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-16 lg:py-20">
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none">
             <img
@@ -93,7 +93,7 @@ function QuadrosPage() {
 
       {/* TURBULÊNCIA — texto à esquerda, arte à direita */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <FlightPath className="pointer-events-none absolute left-0 top-6 hidden w-[55%] text-accent/40 lg:block" />
+        <FlightPath className="pointer-events-none absolute right-[8%] top-3 hidden w-[38%] text-accent/40 lg:block" />
         <div className="relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-16 lg:py-20">
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:order-2 lg:max-w-none">
             <img
@@ -103,7 +103,7 @@ function QuadrosPage() {
             />
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -left-2 bottom-6 -rotate-[10deg] border-2 border-accent bg-primary px-3 py-1.5 font-sans text-[0.6rem] font-bold uppercase tracking-[0.2em] text-accent"
+              className="pointer-events-none absolute -left-2 bottom-6 hidden sm:block -rotate-[10deg] border-2 border-accent bg-primary px-3 py-1.5 font-sans text-[0.6rem] font-bold uppercase tracking-[0.2em] text-accent"
             >
               Fora do roteiro
             </span>
