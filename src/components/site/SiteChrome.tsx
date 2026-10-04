@@ -121,7 +121,6 @@ export function SiteFooter() {
     { label: "Início", to: "/" },
     { label: "Episódios", to: "/episodios" },
     { label: "Quadros", to: "/quadros" },
-    { label: "Histórias", to: "/historias" },
     { label: "Conte sua história", to: "/conte-sua-historia" },
     { label: "Sobre", to: "/sobre" },
     { label: "Contato", to: "/contato" },

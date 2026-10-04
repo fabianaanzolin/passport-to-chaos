@@ -60,7 +60,8 @@ export type Episode = {
   slug: string;
   number: string;
   title: string;
-  description: string;
+  /** Only real synopses; omit when not provided. */
+  description?: string;
   date: string;
   quadro: QuadroSlug;
   categories: string[];
@@ -90,7 +91,6 @@ export const episodes: Episode[] = [
     slug: "001-saco-proibido",
     number: "001",
     title: "Saco Proibido",
-    description: "O primeiro episódio do quadro Vida a Bordo.",
     date: "23 de setembro",
     quadro: "vida-a-bordo",
     categories: ["Navio"],

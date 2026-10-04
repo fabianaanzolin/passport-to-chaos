@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageIntro, PageShell, SpotifyIcon, StoryInvite } from "@/components/site/SiteChrome";
-import { EpisodeCard } from "@/components/site/EpisodeCard";
+import { EpisodeCard, episodeGridClass } from "@/components/site/EpisodeCard";
 import { episodes } from "@/lib/content";
 import { pageMeta, spotifyUrl } from "@/lib/site";
 
@@ -37,14 +37,12 @@ function EpisodesPage() {
         </a>
       </PageIntro>
 
-      <section className="mx-auto max-w-[1312px] px-6 pb-20 sm:px-10">
-        <div className="mb-8 flex items-baseline justify-between border-b border-border pb-4">
+      <section className="mx-auto -mt-4 max-w-[1312px] px-6 pb-20 sm:px-10 lg:-mt-6">
+        <div className="mb-8 flex items-baseline gap-4 border-b border-border pb-4">
           <h2 className="font-display text-3xl font-semibold">Todos os episódios</h2>
-          <span className="font-sans text-xs uppercase tracking-[0.18em] text-muted-foreground">
-            {episodes.length} episódios
-          </span>
+          <span aria-hidden="true" className="font-sans text-[0.6rem] font-bold uppercase tracking-[0.22em] text-stamp">Mais recente primeiro</span>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={episodeGridClass}>
           {episodes.map((ep) => (
             <EpisodeCard key={ep.slug} episode={ep} />
           ))}
