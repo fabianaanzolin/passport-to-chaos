@@ -56,7 +56,7 @@ function QuadrosPage() {
 
       {/* VIDA A BORDO — arte à esquerda, texto à direita */}
       <section className="relative overflow-hidden border-t border-border bg-secondary">
-        <Waves className="pointer-events-none absolute bottom-0 left-0 h-10 w-full text-stamp/15" preserveAspectRatio="none" />
+        <Waves className="pointer-events-none absolute bottom-0 left-0 h-10 w-full text-stamp/15" />
         <div className="relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-16 lg:py-20">
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none">
             <img
