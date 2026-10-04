@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as ConteSuaHistoriaRouteImport } from './routes/conte-sua-historia'
+import { Route as HistoriasRouteImport } from './routes/historias'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as EpisodiosIndexRouteImport } from './routes/episodios.index'
+import { Route as EpisodiosSlugRouteImport } from './routes/episodios.$slug'
+import { Route as QuadrosIndexRouteImport } from './routes/quadros.index'
+import { Route as QuadrosTurbulenciaRouteImport } from './routes/quadros.turbulencia'
+import { Route as QuadrosVidaABordoRouteImport } from './routes/quadros.vida-a-bordo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteSuaHistoriaRoute = ConteSuaHistoriaRouteImport.update({
+  id: '/conte-sua-historia',
+  path: '/conte-sua-historia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoriasRoute = HistoriasRouteImport.update({
+  id: '/historias',
+  path: '/historias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EpisodiosIndexRoute = EpisodiosIndexRouteImport.update({
+  id: '/episodios/',
+  path: '/episodios/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EpisodiosSlugRoute = EpisodiosSlugRouteImport.update({
+  id: '/episodios/$slug',
+  path: '/episodios/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuadrosIndexRoute = QuadrosIndexRouteImport.update({
+  id: '/quadros/',
+  path: '/quadros/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuadrosTurbulenciaRoute = QuadrosTurbulenciaRouteImport.update({
+  id: '/quadros/turbulencia',
+  path: '/quadros/turbulencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuadrosVidaABordoRoute = QuadrosVidaABordoRouteImport.update({
+  id: '/quadros/vida-a-bordo',
+  path: '/quadros/vida-a-bordo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/conte-sua-historia': typeof ConteSuaHistoriaRoute
+  '/historias': typeof HistoriasRoute
+  '/sobre': typeof SobreRoute
+  '/episodios/$slug': typeof EpisodiosSlugRoute
+  '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
+  '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
+  '/episodios/': typeof EpisodiosIndexRoute
+  '/quadros/': typeof QuadrosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/conte-sua-historia': typeof ConteSuaHistoriaRoute
+  '/historias': typeof HistoriasRoute
+  '/sobre': typeof SobreRoute
+  '/episodios/$slug': typeof EpisodiosSlugRoute
+  '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
+  '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
+  '/episodios': typeof EpisodiosIndexRoute
+  '/quadros': typeof QuadrosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/conte-sua-historia': typeof ConteSuaHistoriaRoute
+  '/historias': typeof HistoriasRoute
+  '/sobre': typeof SobreRoute
+  '/episodios/$slug': typeof EpisodiosSlugRoute
+  '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
+  '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
+  '/episodios/': typeof EpisodiosIndexRoute
+  '/quadros/': typeof QuadrosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/conte-sua-historia'
+    | '/historias'
+    | '/sobre'
+    | '/episodios/$slug'
+    | '/quadros/turbulencia'
+    | '/quadros/vida-a-bordo'
+    | '/episodios/'
+    | '/quadros/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contato'
+    | '/conte-sua-historia'
+    | '/historias'
+    | '/sobre'
+    | '/episodios/$slug'
+    | '/quadros/turbulencia'
+    | '/quadros/vida-a-bordo'
+    | '/episodios'
+    | '/quadros'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/conte-sua-historia'
+    | '/historias'
+    | '/sobre'
+    | '/episodios/$slug'
+    | '/quadros/turbulencia'
+    | '/quadros/vida-a-bordo'
+    | '/episodios/'
+    | '/quadros/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  ConteSuaHistoriaRoute: typeof ConteSuaHistoriaRoute
+  HistoriasRoute: typeof HistoriasRoute
+  SobreRoute: typeof SobreRoute
+  EpisodiosSlugRoute: typeof EpisodiosSlugRoute
+  QuadrosTurbulenciaRoute: typeof QuadrosTurbulenciaRoute
+  QuadrosVidaABordoRoute: typeof QuadrosVidaABordoRoute
+  EpisodiosIndexRoute: typeof EpisodiosIndexRoute
+  QuadrosIndexRoute: typeof QuadrosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conte-sua-historia': {
+      id: '/conte-sua-historia'
+      path: '/conte-sua-historia'
+      fullPath: '/conte-sua-historia'
+      preLoaderRoute: typeof ConteSuaHistoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historias': {
+      id: '/historias'
+      path: '/historias'
+      fullPath: '/historias'
+      preLoaderRoute: typeof HistoriasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/episodios/': {
+      id: '/episodios/'
+      path: '/episodios'
+      fullPath: '/episodios/'
+      preLoaderRoute: typeof EpisodiosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/episodios/$slug': {
+      id: '/episodios/$slug'
+      path: '/episodios/$slug'
+      fullPath: '/episodios/$slug'
+      preLoaderRoute: typeof EpisodiosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quadros/': {
+      id: '/quadros/'
+      path: '/quadros'
+      fullPath: '/quadros/'
+      preLoaderRoute: typeof QuadrosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quadros/turbulencia': {
+      id: '/quadros/turbulencia'
+      path: '/quadros/turbulencia'
+      fullPath: '/quadros/turbulencia'
+      preLoaderRoute: typeof QuadrosTurbulenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quadros/vida-a-bordo': {
+      id: '/quadros/vida-a-bordo'
+      path: '/quadros/vida-a-bordo'
+      fullPath: '/quadros/vida-a-bordo'
+      preLoaderRoute: typeof QuadrosVidaABordoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  ConteSuaHistoriaRoute: ConteSuaHistoriaRoute,
+  HistoriasRoute: HistoriasRoute,
+  SobreRoute: SobreRoute,
+  EpisodiosSlugRoute: EpisodiosSlugRoute,
+  QuadrosTurbulenciaRoute: QuadrosTurbulenciaRoute,
+  QuadrosVidaABordoRoute: QuadrosVidaABordoRoute,
+  EpisodiosIndexRoute: EpisodiosIndexRoute,
+  QuadrosIndexRoute: QuadrosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
