@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, Share2, Youtube } from "lucide-react";
 import { Eyebrow, PageShell, SpotifyIcon, StoryInvite } from "@/components/site/SiteChrome";
-import { EpisodeCard, EpisodeCover } from "@/components/site/EpisodeCard";
+import { EpisodeCard, EpisodeCover, episodeGridClass } from "@/components/site/EpisodeCard";
 import { episodes, quadros } from "@/lib/content";
 
 export const Route = createFileRoute("/episodios/$slug")({
@@ -68,21 +68,22 @@ function EpisodePage() {
         </Link>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div className="mx-auto w-full max-w-[440px] lg:mx-0">
+          <div className="mx-auto w-full max-w-[380px] lg:mx-0">
             <EpisodeCover episode={episode} large />
           </div>
 
           <div>
             <Eyebrow>
               Episódio {episode.number} · {episode.date}
-              {episode.demo && <span className="text-accent"> · Demonstração</span>}
             </Eyebrow>
             <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.4rem)] leading-[0.95] font-semibold text-balance">
               {episode.title}
             </h1>
-            <p className="mt-6 max-w-xl font-sans text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              {episode.description}
-            </p>
+            {episode.description && (
+              <p className="mt-6 max-w-xl font-sans text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+                {episode.description}
+              </p>
+            )}
 
             <dl className="mt-8 grid max-w-xl grid-cols-2 gap-6 border-y border-border py-5 font-sans text-sm">
               <div>
@@ -121,7 +122,7 @@ function EpisodePage() {
         {related.length > 0 && (
           <section className="mt-20">
             <h2 className="mb-8 border-b border-border pb-4 font-display text-3xl font-semibold">Episódios relacionados</h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className={episodeGridClass}>
               {related.map((ep) => (
                 <EpisodeCard key={ep.slug} episode={ep} />
               ))}

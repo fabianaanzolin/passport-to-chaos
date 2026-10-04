@@ -25,7 +25,6 @@ export const mainNav = [
   { to: "/", label: "Início" },
   { to: "/episodios", label: "Episódios" },
   { to: "/quadros", label: "Quadros" },
-  { to: "/historias", label: "Histórias" },
   { to: "/conte-sua-historia", label: "Conte sua história" },
   { to: "/sobre", label: "Sobre" },
 ] as const;
