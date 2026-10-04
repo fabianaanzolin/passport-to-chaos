@@ -12,7 +12,8 @@ export function QuadroPage({ slug }: { slug: QuadroSlug }) {
   return (
     <PageShell>
       <section className={turb ? "bg-primary text-primary-foreground" : "bg-secondary"}>
-        <div className="mx-auto max-w-[1312px] px-6 py-16 sm:px-10 lg:py-24">
+        <div className="mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[1fr_auto] lg:py-24">
+          <div>
           <Link to="/quadros" className={`inline-flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-[0.16em] ${turb ? "text-primary-foreground/70" : "text-muted-foreground"} hover:text-accent`}>
             <ArrowLeft className="size-4" /> Quadros
           </Link>
@@ -31,6 +32,8 @@ export function QuadroPage({ slug }: { slug: QuadroSlug }) {
               </li>
             ))}
           </ul>
+          </div>
+          <img src={q.image} alt={`Selo do quadro ${q.name}`} className="mx-auto w-56 rounded-full sm:w-72 lg:w-96" />
         </div>
       </section>
 

@@ -18,5 +18,11 @@ export default defineConfig({
       autoStaticPathsDiscovery: false,
       crawlLinks: false,
     },
+    // Every public page gets its own index.html so direct links work on GitHub Pages.
+    pages: [
+      "/", "/episodios", "/quadros", "/quadros/vida-a-bordo", "/quadros/turbulencia",
+      "/historias", "/conte-sua-historia", "/sobre", "/contato",
+      "/episodios/002-toxico-a-bordo", "/episodios/001-saco-proibido",
+    ].map((path) => ({ path, prerender: { enabled: true } })),
   },
 });
