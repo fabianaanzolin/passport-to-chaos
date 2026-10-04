@@ -37,7 +37,7 @@ function QuadrosPage() {
         </article>
 
         <article className="relative flex flex-col overflow-hidden bg-primary p-8 text-primary-foreground sm:p-10 lg:min-h-[520px]">
-          <span className="pointer-events-none absolute -right-6 top-10 rotate-[-8deg] border-2 border-accent px-4 py-2 font-sans text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <span className="pointer-events-none absolute right-6 top-8 rotate-[-8deg] border-2 border-accent px-4 py-2 font-sans text-xs font-bold uppercase tracking-[0.2em] text-accent">
             Fora do roteiro
           </span>
           <p className="font-sans text-[0.62rem] font-bold uppercase tracking-[0.24em] text-primary-foreground/70">{turb.kicker}</p>
