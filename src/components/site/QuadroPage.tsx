@@ -1,12 +1,14 @@
+import { usePublishedEpisodes } from "@/lib/episodes-db";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { episodes, quadros, type QuadroSlug } from "@/lib/content";
+import { quadros, type QuadroSlug } from "@/lib/content";
 import { Eyebrow, PageShell, StoryInvite } from "./SiteChrome";
 import { EpisodeCard, episodeGridClass } from "./EpisodeCard";
 
 export function QuadroPage({ slug }: { slug: QuadroSlug }) {
   const q = quadros[slug];
   const turb = slug === "turbulencia";
+  const { episodes } = usePublishedEpisodes();
   const list = episodes.filter((e) => e.quadro === slug);
 
   return (

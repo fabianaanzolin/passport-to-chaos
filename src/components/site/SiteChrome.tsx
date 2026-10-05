@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Menu, X, Youtube } from "lucide-react";
+import { Facebook, Instagram, Lock, Menu, X, Youtube } from "lucide-react";
 import {
   facebookUrl,
   images,
@@ -156,6 +156,11 @@ export function SiteFooter() {
               className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
             >
               Anzolin Consultoria
+            </a>
+          </p>
+          <p className="mt-2 text-[0.62rem]">
+            <a href="/admin" className="inline-flex items-center gap-1 text-muted-foreground/70 transition-colors hover:text-foreground">
+              <Lock className="size-2.5" aria-hidden="true" /> Admin
             </a>
           </p>
         </div>

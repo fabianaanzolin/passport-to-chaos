@@ -8,3 +8,10 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture rules
+- The site is a static export (GitHub Pages): admin and live episode data use only the browser backend client with row-level security, never server functions — there is no server at runtime.
+- Admin access is an email allowlist in `staff_members` (roles admin/editor) checked by `staff_role()`/`is_staff()` in policies — roles never live on user/profile data.
+- Public episode pages start from the built-in list in `src/lib/content.ts` and swap in published rows from the database in the browser — keeps pages prerendered and indexable.
+- Episode covers live in a private bucket and are shown through signed links — the workspace blocks public buckets.
+- Every admin path must be listed in the prerender pages in `vite.config.ts` — otherwise direct links 404 on GitHub Pages.
