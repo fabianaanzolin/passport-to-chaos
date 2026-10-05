@@ -1,15 +1,16 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, Share2, Youtube } from "lucide-react";
 import { Eyebrow, PageShell, SpotifyIcon, StoryInvite } from "@/components/site/SiteChrome";
 import { EpisodeCard, EpisodeCover, episodeGridClass } from "@/components/site/EpisodeCard";
-import { episodes, quadros } from "@/lib/content";
+import { episodes as staticEpisodes, quadros } from "@/lib/content";
+import { usePublishedEpisodes } from "@/lib/episodes-db";
 
 export const Route = createFileRoute("/episodios/$slug")({
   loader: ({ params }) => {
-    const episode = episodes.find((e) => e.slug === params.slug);
-    if (!episode) throw notFound();
-    return { episode };
+    // Built-in episodes render immediately; episodes created in the admin load in the browser.
+    const episode = staticEpisodes.find((e) => e.slug === params.slug) ?? null;
+    return { episode, slug: params.slug };
   },
   head: ({ loaderData }) => {
     const ep = loaderData?.episode;
@@ -40,8 +41,25 @@ export const Route = createFileRoute("/episodios/$slug")({
 });
 
 function EpisodePage() {
-  const { episode } = Route.useLoaderData();
+  const { episode: initial, slug } = Route.useLoaderData();
+  const { episodes, loaded } = usePublishedEpisodes();
   const [copied, setCopied] = useState(false);
+  const live = episodes.find((e) => e.slug === slug);
+  const episode = loaded ? live : (live ?? initial);
+  if (!episode) {
+    return (
+      <PageShell>
+        <div className="mx-auto max-w-xl px-6 py-24 text-center">
+          <h1 className="font-display text-4xl font-semibold">{loaded ? "Episódio não encontrado" : "Carregando episódio…"}</h1>
+          {loaded && (
+            <Link to="/episodios" className="mt-6 inline-block font-sans text-sm font-bold text-accent underline underline-offset-4">
+              Ver todos os episódios
+            </Link>
+          )}
+        </div>
+      </PageShell>
+    );
+  }
   const related = episodes.filter((e) => e.slug !== episode.slug).slice(0, 3);
   const quadro = quadros[episode.quadro];
 
@@ -96,7 +114,7 @@ function EpisodePage() {
               </div>
               <div>
                 <dt className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">Categorias</dt>
-                <dd className="mt-1 font-semibold">{episode.categories.join(" · ")}</dd>
+                <dd className="mt-1 font-semibold">{episode.categories.length ? episode.categories.join(" · ") : quadro.name}</dd>
               </div>
             </dl>
 
