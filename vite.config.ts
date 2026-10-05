@@ -24,7 +24,7 @@ export default defineConfig({
       "/historias", "/conte-sua-historia", "/sobre", "/contato",
       "/episodios/002-toxico-a-bordo", "/episodios/001-saco-proibido",
       // Admin (renders in the browser only; listed so direct links and e-mail links open).
-      "/admin", "/admin/episodios", "/admin/episodios/novo", "/admin/quadros", "/admin/conteudo",
+      "/admin", "/admin/episodios", "/admin/episodios/novo", "/admin/episodios/editar", "/admin/quadros", "/admin/conteudo",
       "/admin/perfil", "/admin/links", "/admin/configuracoes", "/admin/recuperar-senha", "/admin/nova-senha",
     ].map((path) => ({ path, prerender: { enabled: true } })),
   },
