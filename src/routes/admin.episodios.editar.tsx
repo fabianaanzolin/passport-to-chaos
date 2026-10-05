@@ -5,7 +5,7 @@ import { EpisodeForm } from "@/components/admin/EpisodeForm";
 import { PageTitle, adminMeta, ghostBtn } from "@/components/admin/admin-ui";
 
 export const Route = createFileRoute("/admin/episodios/editar")({
-  validateSearch: (s: Record<string, unknown>) => ({ id: typeof s.id === "string" ? s.id : "" }),
+  validateSearch: (s: Record<string, unknown>) => ({ id: typeof s["id"] === "string" ? s["id"] : "" }),
   head: () => ({ meta: adminMeta("Editar episódio") }),
   component: EditEpisode,
 });

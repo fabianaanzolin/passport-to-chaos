@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 export const Route = createFileRoute("/admin/episodios/")({
-  validateSearch: (s: Record<string, unknown>) => ({ salvo: s.salvo ? 1 : undefined }),
+  validateSearch: (s: Record<string, unknown>): { salvo?: number } => (s["salvo"] ? { salvo: 1 } : {}),
   head: () => ({ meta: adminMeta("Episódios") }),
   component: EpisodesAdmin,
 });

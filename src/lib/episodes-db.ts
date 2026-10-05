@@ -15,7 +15,7 @@ const months = [
 export function formatEpisodeDate(iso: string | null) {
   if (!iso) return "";
   const [, m, d] = iso.split("-").map(Number);
-  return `${d} de ${months[m - 1]}`;
+  return `${d} de ${months[(m ?? 1) - 1]}`;
 }
 
 /** Stored covers are either public site paths ("/..."), full URLs, or paths inside the private bucket. */

@@ -61,16 +61,16 @@ export type Episode = {
   number: string;
   title: string;
   /** Only real synopses; omit when not provided. */
-  description?: string;
+  description?: string | undefined;
   /** Full description written in the admin. */
-  longDescription?: string;
+  longDescription?: string | undefined;
   date: string;
   quadro: QuadroSlug;
   categories: string[];
   spotifyUrl: string;
-  youtubeUrl?: string;
+  youtubeUrl?: string | undefined;
   /** Optional public image path (e.g. "/episodios/001.jpg"). Falls back to a graphic cover. */
-  cover?: string;
+  cover?: string | undefined;
   /** DEMO: placeholder content. Remove the flag when replacing with a real episode. */
   demo?: boolean;
 };
