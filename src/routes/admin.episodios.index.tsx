@@ -5,6 +5,7 @@ import { Eye, Pencil, Plus, Star, Trash2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { formatEpisodeDate, resolveCover, type EpisodeRow } from "@/lib/episodes-db";
 import { quadros, type QuadroSlug } from "@/lib/content";
+import { adminEpisodesQuery, StatusBadge } from "@/components/admin/episodes-admin";
 import { Notice, PageTitle, adminMeta, primaryBtn } from "@/components/admin/admin-ui";
 import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription,
@@ -16,18 +17,6 @@ export const Route = createFileRoute("/admin/episodios/")({
   head: () => ({ meta: adminMeta("Episódios") }),
   component: EpisodesAdmin,
 });
-
-export const adminEpisodesQuery = {
-  queryKey: ["admin-episodes"],
-  queryFn: async () => {
-    const { data, error } = await supabase
-      .from("episodes").select("*")
-      .order("published_on", { ascending: false, nullsFirst: true })
-      .order("number", { ascending: false });
-    if (error) throw error;
-    return data;
-  },
-};
 
 function EpisodesAdmin() {
   const { salvo } = Route.useSearch();
@@ -131,15 +120,6 @@ function EpisodesAdmin() {
         </AlertDialogContent>
       </AlertDialog>
     </div>
-  );
-}
-
-export function StatusBadge({ status }: { status: string }) {
-  const pub = status === "published";
-  return (
-    <span className={`inline-block rounded-full px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.14em] ${pub ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"}`}>
-      {pub ? "Publicado" : "Rascunho"}
-    </span>
   );
 }
 

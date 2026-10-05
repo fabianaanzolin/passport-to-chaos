@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Plus } from "lucide-react";
 import { quadros, type QuadroSlug } from "@/lib/content";
 import { adminMeta, primaryBtn, useAdmin } from "@/components/admin/admin-ui";
-import { adminEpisodesQuery, StatusBadge } from "./admin.episodios.index";
+import { adminEpisodesQuery, StatusBadge } from "@/components/admin/episodes-admin";
 
 export const Route = createFileRoute("/admin/")({
   head: () => ({ meta: adminMeta("Dashboard") }),
