@@ -62,6 +62,8 @@ export type Episode = {
   title: string;
   /** Only real synopses; omit when not provided. */
   description?: string;
+  /** Full description written in the admin. */
+  longDescription?: string;
   date: string;
   quadro: QuadroSlug;
   categories: string[];

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageIntro, PageShell, SpotifyIcon, StoryInvite } from "@/components/site/SiteChrome";
 import { EpisodeCard, episodeGridClass } from "@/components/site/EpisodeCard";
-import { episodes } from "@/lib/content";
+import { usePublishedEpisodes } from "@/lib/episodes-db";
 import { pageMeta, spotifyUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/episodios/")({
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/episodios/")({
 });
 
 function EpisodesPage() {
+  const { episodes } = usePublishedEpisodes();
   return (
     <PageShell>
       <PageIntro eyebrow="Podcast · Episódios" title="Passaporte para o Caos">
