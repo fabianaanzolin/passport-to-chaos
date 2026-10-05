@@ -102,6 +102,12 @@ function EpisodePage() {
                 {episode.description}
               </p>
             )}
+            {episode.longDescription && (
+              <p className="mt-4 max-w-xl whitespace-pre-line font-sans text-base leading-7 text-muted-foreground">
+                {episode.longDescription}
+              </p>
+            )}
+
 
             <dl className="mt-8 grid max-w-xl grid-cols-2 gap-6 border-y border-border py-5 font-sans text-sm">
               <div>
