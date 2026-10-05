@@ -10,10 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ConteSuaHistoriaRouteImport } from './routes/conte-sua-historia'
 import { Route as HistoriasRouteImport } from './routes/historias'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as AdminNovaSenhaRouteImport } from './routes/admin_.nova-senha'
+import { Route as AdminRecuperarSenhaRouteImport } from './routes/admin_.recuperar-senha'
 import { Route as EpisodiosIndexRouteImport } from './routes/episodios.index'
 import { Route as EpisodiosSlugRouteImport } from './routes/episodios.$slug'
 import { Route as QuadrosIndexRouteImport } from './routes/quadros.index'
@@ -23,6 +26,11 @@ import { Route as QuadrosVidaABordoRouteImport } from './routes/quadros.vida-a-b
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -43,6 +51,16 @@ const HistoriasRoute = HistoriasRouteImport.update({
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminNovaSenhaRoute = AdminNovaSenhaRouteImport.update({
+  id: '/admin_/nova-senha',
+  path: '/admin/nova-senha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRecuperarSenhaRoute = AdminRecuperarSenhaRouteImport.update({
+  id: '/admin_/recuperar-senha',
+  path: '/admin/recuperar-senha',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EpisodiosIndexRoute = EpisodiosIndexRouteImport.update({
@@ -73,10 +91,13 @@ const QuadrosVidaABordoRoute = QuadrosVidaABordoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
   '/historias': typeof HistoriasRoute
   '/sobre': typeof SobreRoute
+  '/admin/nova-senha': typeof AdminNovaSenhaRoute
+  '/admin/recuperar-senha': typeof AdminRecuperarSenhaRoute
   '/episodios/$slug': typeof EpisodiosSlugRoute
   '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
@@ -85,10 +106,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
   '/historias': typeof HistoriasRoute
   '/sobre': typeof SobreRoute
+  '/admin/nova-senha': typeof AdminNovaSenhaRoute
+  '/admin/recuperar-senha': typeof AdminRecuperarSenhaRoute
   '/episodios/$slug': typeof EpisodiosSlugRoute
   '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
@@ -98,10 +122,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
   '/historias': typeof HistoriasRoute
   '/sobre': typeof SobreRoute
+  '/admin_/nova-senha': typeof AdminNovaSenhaRoute
+  '/admin_/recuperar-senha': typeof AdminRecuperarSenhaRoute
   '/episodios/$slug': typeof EpisodiosSlugRoute
   '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
@@ -112,10 +139,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/contato'
     | '/conte-sua-historia'
     | '/historias'
     | '/sobre'
+    | '/admin/nova-senha'
+    | '/admin/recuperar-senha'
     | '/episodios/$slug'
     | '/quadros/turbulencia'
     | '/quadros/vida-a-bordo'
@@ -124,10 +154,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/contato'
     | '/conte-sua-historia'
     | '/historias'
     | '/sobre'
+    | '/admin/nova-senha'
+    | '/admin/recuperar-senha'
     | '/episodios/$slug'
     | '/quadros/turbulencia'
     | '/quadros/vida-a-bordo'
@@ -136,10 +169,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/contato'
     | '/conte-sua-historia'
     | '/historias'
     | '/sobre'
+    | '/admin_/nova-senha'
+    | '/admin_/recuperar-senha'
     | '/episodios/$slug'
     | '/quadros/turbulencia'
     | '/quadros/vida-a-bordo'
@@ -149,10 +185,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   ContatoRoute: typeof ContatoRoute
   ConteSuaHistoriaRoute: typeof ConteSuaHistoriaRoute
   HistoriasRoute: typeof HistoriasRoute
   SobreRoute: typeof SobreRoute
+  AdminNovaSenhaRoute: typeof AdminNovaSenhaRoute
+  AdminRecuperarSenhaRoute: typeof AdminRecuperarSenhaRoute
   EpisodiosSlugRoute: typeof EpisodiosSlugRoute
   QuadrosTurbulenciaRoute: typeof QuadrosTurbulenciaRoute
   QuadrosVidaABordoRoute: typeof QuadrosVidaABordoRoute
@@ -167,6 +206,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -195,6 +241,20 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin_/nova-senha': {
+      id: '/admin_/nova-senha'
+      path: '/admin/nova-senha'
+      fullPath: '/admin/nova-senha'
+      preLoaderRoute: typeof AdminNovaSenhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin_/recuperar-senha': {
+      id: '/admin_/recuperar-senha'
+      path: '/admin/recuperar-senha'
+      fullPath: '/admin/recuperar-senha'
+      preLoaderRoute: typeof AdminRecuperarSenhaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/episodios/': {
@@ -237,10 +297,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   ContatoRoute: ContatoRoute,
   ConteSuaHistoriaRoute: ConteSuaHistoriaRoute,
   HistoriasRoute: HistoriasRoute,
   SobreRoute: SobreRoute,
+  AdminNovaSenhaRoute: AdminNovaSenhaRoute,
+  AdminRecuperarSenhaRoute: AdminRecuperarSenhaRoute,
   EpisodiosSlugRoute: EpisodiosSlugRoute,
   QuadrosTurbulenciaRoute: QuadrosTurbulenciaRoute,
   QuadrosVidaABordoRoute: QuadrosVidaABordoRoute,
