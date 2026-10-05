@@ -22,6 +22,8 @@ import { Route as EpisodiosSlugRouteImport } from './routes/episodios.$slug'
 import { Route as QuadrosIndexRouteImport } from './routes/quadros.index'
 import { Route as QuadrosTurbulenciaRouteImport } from './routes/quadros.turbulencia'
 import { Route as QuadrosVidaABordoRouteImport } from './routes/quadros.vida-a-bordo'
+import { Route as AdminEpisodiosEditarRouteImport } from './routes/admin.episodios.editar'
+import { Route as AdminEpisodiosNovoRouteImport } from './routes/admin.episodios.novo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -88,10 +90,20 @@ const QuadrosVidaABordoRoute = QuadrosVidaABordoRouteImport.update({
   path: '/quadros/vida-a-bordo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminEpisodiosEditarRoute = AdminEpisodiosEditarRouteImport.update({
+  id: '/episodios/editar',
+  path: '/episodios/editar',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEpisodiosNovoRoute = AdminEpisodiosNovoRouteImport.update({
+  id: '/episodios/novo',
+  path: '/episodios/novo',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
   '/historias': typeof HistoriasRoute
@@ -103,10 +115,12 @@ export interface FileRoutesByFullPath {
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
   '/episodios/': typeof EpisodiosIndexRoute
   '/quadros/': typeof QuadrosIndexRoute
+  '/admin/episodios/editar': typeof AdminEpisodiosEditarRoute
+  '/admin/episodios/novo': typeof AdminEpisodiosNovoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
   '/historias': typeof HistoriasRoute
@@ -118,11 +132,13 @@ export interface FileRoutesByTo {
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
   '/episodios': typeof EpisodiosIndexRoute
   '/quadros': typeof QuadrosIndexRoute
+  '/admin/episodios/editar': typeof AdminEpisodiosEditarRoute
+  '/admin/episodios/novo': typeof AdminEpisodiosNovoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
   '/historias': typeof HistoriasRoute
@@ -134,6 +150,8 @@ export interface FileRoutesById {
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
   '/episodios/': typeof EpisodiosIndexRoute
   '/quadros/': typeof QuadrosIndexRoute
+  '/admin/episodios/editar': typeof AdminEpisodiosEditarRoute
+  '/admin/episodios/novo': typeof AdminEpisodiosNovoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +169,8 @@ export interface FileRouteTypes {
     | '/quadros/vida-a-bordo'
     | '/episodios/'
     | '/quadros/'
+    | '/admin/episodios/editar'
+    | '/admin/episodios/novo'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +186,8 @@ export interface FileRouteTypes {
     | '/quadros/vida-a-bordo'
     | '/episodios'
     | '/quadros'
+    | '/admin/episodios/editar'
+    | '/admin/episodios/novo'
   id:
     | '__root__'
     | '/'
@@ -181,11 +203,13 @@ export interface FileRouteTypes {
     | '/quadros/vida-a-bordo'
     | '/episodios/'
     | '/quadros/'
+    | '/admin/episodios/editar'
+    | '/admin/episodios/novo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
+  AdminRoute: typeof AdminRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   ConteSuaHistoriaRoute: typeof ConteSuaHistoriaRoute
   HistoriasRoute: typeof HistoriasRoute
@@ -292,12 +316,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuadrosVidaABordoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/episodios/editar': {
+      id: '/admin/episodios/editar'
+      path: '/episodios/editar'
+      fullPath: '/admin/episodios/editar'
+      preLoaderRoute: typeof AdminEpisodiosEditarRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/episodios/novo': {
+      id: '/admin/episodios/novo'
+      path: '/episodios/novo'
+      fullPath: '/admin/episodios/novo'
+      preLoaderRoute: typeof AdminEpisodiosNovoRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminEpisodiosEditarRoute: typeof AdminEpisodiosEditarRoute
+  AdminEpisodiosNovoRoute: typeof AdminEpisodiosNovoRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminEpisodiosEditarRoute: AdminEpisodiosEditarRoute,
+  AdminEpisodiosNovoRoute: AdminEpisodiosNovoRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
   ContatoRoute: ContatoRoute,
   ConteSuaHistoriaRoute: ConteSuaHistoriaRoute,
   HistoriasRoute: HistoriasRoute,
