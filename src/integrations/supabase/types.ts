@@ -70,18 +70,24 @@ export type Database = {
       }
       staff_members: {
         Row: {
+          active: boolean
           created_at: string
           email: string
+          name: string | null
           role: Database["public"]["Enums"]["app_role"]
         }
         Insert: {
+          active?: boolean
           created_at?: string
           email: string
+          name?: string | null
           role: Database["public"]["Enums"]["app_role"]
         }
         Update: {
+          active?: boolean
           created_at?: string
           email?: string
+          name?: string | null
           role?: Database["public"]["Enums"]["app_role"]
         }
         Relationships: []
@@ -91,6 +97,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_list_staff: {
+        Args: never
+        Returns: {
+          active: boolean
+          created_at: string
+          email: string
+          last_sign_in_at: string
+          name: string
+          role: Database["public"]["Enums"]["app_role"]
+        }[]
+      }
       is_staff: { Args: never; Returns: boolean }
       staff_role: {
         Args: never
