@@ -18,8 +18,11 @@ function ForgotPassword() {
     e.preventDefault();
     setBusy(true);
     // The answer is always the same, so nobody can find out which e-mails have an account.
-    await supabase.auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: `${window.location.origin}/admin/nova-senha`,
+    // A one-time sign-in link also covers first access: the database only lets
+    // allowlisted staff e-mails get an account, then they choose a password.
+    await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: { shouldCreateUser: true, emailRedirectTo: `${window.location.origin}/admin/nova-senha` },
     });
     setBusy(false);
     setSent(true);
