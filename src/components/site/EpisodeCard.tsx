@@ -1,9 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { quadros, type Episode } from "@/lib/content";
+import { type Episode } from "@/lib/content";
+import { useQuadroName } from "@/lib/quadros-db";
 import { SpotifyIcon } from "./SiteChrome";
 
 export function EpisodeCover({ episode, large = false }: { episode: Episode; large?: boolean }) {
+  const quadroName = useQuadroName();
   if (episode.cover) {
     // Contained, never cropped: keeps the full official art (including titles) visible.
     return (
@@ -23,7 +25,7 @@ export function EpisodeCover({ episode, large = false }: { episode: Episode; lar
       aria-hidden="true"
     >
       <span className="font-sans text-[0.6rem] font-bold uppercase tracking-[0.24em] opacity-80">
-        {quadros[episode.quadro].name}
+        {quadroName(episode.quadro)}
       </span>
       <span className={`font-display font-semibold leading-none ${large ? "text-[9rem]" : "text-[5.5rem]"}`}>
         {episode.number}
@@ -37,6 +39,7 @@ export const episodeGridClass =
   "grid max-w-[360px] gap-6 sm:max-w-none sm:grid-cols-[repeat(2,minmax(0,300px))] lg:grid-cols-[repeat(3,minmax(0,300px))] lg:gap-8";
 
 export function EpisodeCard({ episode }: { episode: Episode }) {
+  const quadroName = useQuadroName();
   return (
     <article className="group flex flex-col border border-border bg-background">
       <Link to="/episodios/$slug" params={{ slug: episode.slug }} aria-label={`Ver episódio ${episode.number}: ${episode.title}`}>
@@ -44,7 +47,7 @@ export function EpisodeCard({ episode }: { episode: Episode }) {
       </Link>
       <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
         <p className="font-sans text-[0.6rem] font-bold uppercase tracking-[0.2em] text-stamp">
-          {quadros[episode.quadro].name} <span className="text-muted-foreground">· Ep. {episode.number}</span>
+          {quadroName(episode.quadro)} <span className="text-muted-foreground">· Ep. {episode.number}</span>
         </p>
         <h3 className="mt-2 font-display text-2xl leading-tight font-semibold">
           <Link to="/episodios/$slug" params={{ slug: episode.slug }} className="hover:text-accent">

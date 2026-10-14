@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Plus } from "lucide-react";
-import { quadros, type QuadroSlug } from "@/lib/content";
+import { useQuadroName } from "@/lib/quadros-db";
 import { adminMeta, primaryBtn, useAdmin } from "@/components/admin/admin-ui";
 import { adminEpisodesQuery, StatusBadge } from "@/components/admin/episodes-admin";
 
@@ -41,7 +41,7 @@ function Dashboard() {
             <li key={ep.id} className="flex flex-wrap items-center gap-x-5 gap-y-2 px-5 py-4">
               <span className="w-12 font-bold">#{ep.number}</span>
               <span className="flex-1 font-display text-lg font-semibold">{ep.title}</span>
-              <span className="text-muted-foreground">{quadros[ep.quadro as QuadroSlug]?.name}</span>
+              <span className="text-muted-foreground">{quadroName(ep.quadro)}</span>
               <StatusBadge status={ep.status} />
               <Link to="/admin/episodios/editar" search={{ id: ep.id }} className="text-xs font-bold uppercase tracking-[0.12em] text-accent hover:underline">Editar</Link>
             </li>

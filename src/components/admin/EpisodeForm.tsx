@@ -4,6 +4,7 @@ import { ImagePlus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { COVER_BUCKET, resolveCover, slugify, type EpisodeRow } from "@/lib/episodes-db";
 import { quadros } from "@/lib/content";
+import { useCustomQuadros } from "@/lib/quadros-db";
 import { Notice, ghostBtn, inputClass, labelClass, primaryBtn } from "./admin-ui";
 
 const MAX_BYTES = 5 * 1024 * 1024;
@@ -119,6 +120,9 @@ export function EpisodeForm({ episode }: { episode?: EpisodeRow }) {
           <Field label="Quadro" id="quadro">
             <select id="quadro" value={v.quadro} onChange={(e) => set("quadro", e.target.value)} className={inputClass}>
               {Object.values(quadros).map((q) => <option key={q.slug} value={q.slug}>{q.name}</option>)}
+              {custom.filter((q) => q.status === "active" || q.slug === episode?.quadro).map((q) => (
+                <option key={q.slug} value={q.slug}>{q.name}{q.status !== "active" ? " (inativo)" : ""}</option>
+              ))}
             </select>
           </Field>
           <Field label="Data de publicação" id="date">
