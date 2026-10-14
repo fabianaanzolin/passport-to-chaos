@@ -22,6 +22,13 @@
       "when": 1791982056659,
       "tag": "0002_site_content",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791982739323,
+      "tag": "0003_create_quadros",
+      "breakpoints": true
     }
   ]
 }
