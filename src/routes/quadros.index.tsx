@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageIntro, PageShell, StoryInvite } from "@/components/site/SiteChrome";
-import { quadros } from "@/lib/content";
+import { useQuadro } from "@/lib/site-content";
 import { images, pageMeta } from "@/lib/site";
 
 export const Route = createFileRoute("/quadros/")({
@@ -47,7 +47,7 @@ function Postmark({ children, className = "" }: { children: string; className?: 
 
 function QuadrosPage() {
   const vida = useQuadro("vida-a-bordo");
-  const turb = quadros.turbulencia;
+  const turb = useQuadro("turbulencia");
   return (
     <PageShell>
       <PageIntro eyebrow="Quadros" title="Dois jeitos de sair do roteiro.">
@@ -55,7 +55,7 @@ function QuadrosPage() {
       </PageIntro>
 
       {/* VIDA A BORDO — arte à esquerda, texto à direita */}
-      <section className="relative overflow-hidden border-t border-border bg-secondary">
+      <section hidden={!vida.active} className="relative overflow-hidden border-t border-border bg-secondary">
         <Waves className="pointer-events-none absolute bottom-0 left-0 h-10 w-full text-stamp/15" />
         <div className="relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-16 lg:py-20">
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none">
@@ -92,7 +92,7 @@ function QuadrosPage() {
       </section>
 
       {/* TURBULÊNCIA — texto à esquerda, arte à direita */}
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+      <section hidden={!turb.active} className="relative overflow-hidden bg-primary text-primary-foreground">
         <FlightPath className="pointer-events-none absolute right-[8%] top-3 hidden w-[38%] text-accent/40 lg:block" />
         <div className="relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-16 lg:py-20">
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:order-2 lg:max-w-none">
