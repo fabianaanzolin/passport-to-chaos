@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageIntro, PageShell, StoryInvite } from "@/components/site/SiteChrome";
 import { useQuadro } from "@/lib/site-content";
+import { useCustomQuadros } from "@/lib/quadros-db";
 import { images, pageMeta } from "@/lib/site";
 
 export const Route = createFileRoute("/quadros/")({
@@ -48,6 +49,7 @@ function Postmark({ children, className = "" }: { children: string; className?: 
 function QuadrosPage() {
   const vida = useQuadro("vida-a-bordo");
   const turb = useQuadro("turbulencia");
+  const custom = useCustomQuadros().list.filter((q) => q.status === "active");
   return (
     <PageShell>
       <PageIntro eyebrow="Quadros" title="Dois jeitos de sair do roteiro.">
@@ -133,6 +135,42 @@ function QuadrosPage() {
           </div>
         </div>
       </section>
+
+      {/* Quadros criados no admin — alternam o padrão das duas faixas acima */}
+      {custom.map((q, i) => {
+        const dark = i % 2 === 1;
+        return (
+          <section key={q.slug} className={`relative overflow-hidden ${dark ? "bg-primary text-primary-foreground" : "border-t border-border bg-secondary"}`}>
+            <div className={`relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:gap-16 lg:py-20 ${dark ? "lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)]" : "lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)]"}`}>
+              <div className={`relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none ${dark ? "lg:order-2" : ""}`}>
+                {q.imageUrl && (
+                  <img src={q.imageUrl} alt={`Arte oficial do quadro ${q.name}`} className={`aspect-square w-full rounded-full object-cover shadow-[0_30px_60px_-34px_color-mix(in_oklab,var(--foreground)_60%,transparent)] ${dark ? "rotate-3" : "-rotate-2"}`} />
+                )}
+                <Postmark className={`absolute -right-2 -top-2 rotate-12 sm:-right-4 ${dark ? "border-accent/60 bg-primary/80 text-accent" : "border-stamp/50 bg-secondary/80 text-stamp"}`}>
+                  {`Quadro ${String(i + 3).padStart(2, "0")}`}
+                </Postmark>
+              </div>
+              <div className={`max-w-xl ${dark ? "lg:order-1" : ""}`}>
+                <p className={`font-sans text-[0.62rem] font-bold uppercase tracking-[0.24em] ${dark ? "text-primary-foreground/70" : "text-stamp"}`}>
+                  Quadro {String(i + 3).padStart(2, "0")}
+                </p>
+                <h2 className="mt-4 font-display text-[clamp(2.8rem,6vw,4.8rem)] leading-[0.9] font-semibold">{q.name}</h2>
+                {q.phrase && <p className="mt-6 font-display text-[clamp(1.6rem,3vw,2.3rem)] italic leading-tight">{q.phrase}</p>}
+                {q.short_description && (
+                  <p className={`mt-5 font-sans text-sm leading-6 sm:text-base sm:leading-7 ${dark ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{q.short_description}</p>
+                )}
+                <Link
+                  to="/quadros/$slug"
+                  params={{ slug: q.slug }}
+                  className="mt-8 inline-flex items-center gap-2 border-b-2 border-accent pb-1 font-sans text-sm font-bold uppercase tracking-[0.14em] transition-colors hover:text-accent"
+                >
+                  Explorar {q.name} <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })}
 
       {/* Assinatura discreta */}
       <div className="mx-auto flex max-w-[1312px] items-center gap-4 px-6 pt-14 sm:px-10">
