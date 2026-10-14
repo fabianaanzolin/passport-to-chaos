@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/site/SiteChrome";
+import { imageFor, paragraphs, useLinks, useSiteContent } from "@/lib/site-content";
 import {
   Instagram,
   Facebook,
@@ -37,17 +38,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const spotifyUrl =
-  "https://open.spotify.com/show/3pnAt7AZGwB2hoYEs45d7U?si=RueEwUTOS76nLt0odnxIRw&utm_source=copy-link";
-
-const instagramUrl =
-  "https://www.instagram.com/passaporteparaocaos/";
-
-const facebookUrl =
-  "https://www.facebook.com/profile.php?id=61594587063784";
-
-const youtubeUrl =
-  "https://www.youtube.com/@PassaporteParaOCaos";
 
 function SpotifyIcon({
   className,
@@ -70,6 +60,10 @@ function SpotifyIcon({
 }
 
 function Index() {
+  const c = useSiteContent();
+  const l = useLinks();
+  const spotifyUrl = l.spotify;
+  const instagramUrl = l.instagram;
   return (
     <main
       id="topo"
@@ -86,13 +80,12 @@ function Index() {
             </p>
 
             <h1 className="font-display text-[clamp(3.6rem,8vw,7.8rem)] leading-[0.86] font-semibold text-balance">
-              Viajar também é{" "}
-              <span className="text-accent">se perder.</span>
+              {c.hero.title}{" "}
+              <span className="text-accent">{c.hero.highlight}</span>
             </h1>
 
             <p className="mt-8 max-w-xl font-sans text-base leading-7 text-muted-foreground sm:text-lg">
-              Histórias reais de viagens, perrengues, encontros inesperados e
-              tudo o que não estava no roteiro.
+              {c.hero.subtitle}
             </p>
 
             <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7">
@@ -163,7 +156,7 @@ function Index() {
             <figure className="relative rotate-[-2.5deg]">
               <div className="border border-border bg-primary-foreground p-2.5 shadow-[0_22px_56px_-32px_color-mix(in_oklab,var(--foreground)_45%,transparent)]">
                 <img
-                  src="/adriele.jpeg"
+                  src={imageFor(c, "perfil", c.perfil.photo) || "/adriele.jpeg"}
                   alt="Adriele, criadora do Passaporte para o Caos"
                   className="aspect-square w-full object-cover"
                 />
@@ -191,17 +184,7 @@ function Index() {
             </h2>
 
             <div className="mt-6 max-w-xl space-y-4 font-sans text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              <p>
-                Eu sou a Adriele, apaixonada por viagens, histórias e pessoas.
-              </p>
-
-              <p>
-                No Passaporte para o Caos, compartilho relatos reais — meus, de
-                convidados e da comunidade — mostrando que viajar é muito mais
-                do que fotos bonitas. É se permitir viver o inesperado,
-                aprender com o caos e colecionar experiências que se
-                transformam em histórias.
-              </p>
+              {paragraphs(c.perfil.bio).map((p) => <p key={p}>{p}</p>)}
             </div>
 
             <Link
@@ -301,26 +284,17 @@ function Index() {
               </p>
 
               <h2 className="font-display text-[clamp(2.4rem,6vw,4.2rem)] leading-[0.95] font-semibold text-balance [text-shadow:0_2px_18px_color-mix(in_oklab,black_60%,transparent)]">
-                Tem uma história para contar?
+                {c.historia.title}
               </h2>
 
               <div className="mt-6 space-y-4 font-sans text-base leading-7 text-primary-foreground/90 sm:text-lg sm:leading-8 [text-shadow:0_1px_10px_color-mix(in_oklab,black_55%,transparent)]">
-                <p>
-                  Você viveu uma história que parece mentira? Um perrengue
-                  inesquecível? Uma situação absurda a bordo? Um encontro que
-                  saiu completamente do roteiro? Então talvez essa história
-                  pertença ao Passaporte para o Caos.
-                </p>
-
-                <p>
-                  Enquanto nosso espaço para envio de histórias não fica
-                  pronto, você já pode mandar a sua diretamente para a gente.
-                </p>
+                <p>{c.historia.text}</p>
+                {c.historia.extra && <p>{c.historia.extra}</p>}
               </div>
 
               <div className="mt-8 flex flex-col items-start gap-4">
                 <a
-                  href="mailto:contato@passaporteparaocaos.com.br?subject=Minha%20hist%C3%B3ria%20para%20o%20Passaporte%20para%20o%20Caos"
+                  href={l.storyMailto}
                   className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-accent px-7 font-sans text-sm font-bold text-primary-foreground shadow-[0_18px_44px_-20px_color-mix(in_oklab,black_65%,transparent)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                   aria-label="Enviar minha história por e-mail para o Passaporte para o Caos"
                 >
@@ -329,10 +303,10 @@ function Index() {
                 </a>
 
                 <a
-                  href="mailto:contato@passaporteparaocaos.com.br"
+                  href={`mailto:${l.email}`}
                   className="font-sans text-sm text-primary-foreground/80 underline decoration-primary-foreground/40 underline-offset-4 transition-colors hover:text-primary-foreground"
                 >
-                  contato@passaporteparaocaos.com.br
+                  {l.email}
                 </a>
               </div>
             </div>

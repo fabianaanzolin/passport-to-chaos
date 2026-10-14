@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageIntro, PageShell } from "@/components/site/SiteChrome";
-import { contactEmail, mailtoWithSubject, pageMeta, storyMailto } from "@/lib/site";
+import { pageMeta } from "@/lib/site";
+import { useLinks } from "@/lib/site-content";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
