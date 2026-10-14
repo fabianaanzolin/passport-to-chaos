@@ -52,7 +52,8 @@ export type ContentKey = keyof SiteContent;
 /** Stored values plus resolved image addresses for display. */
 type State = SiteContent & { images: Record<string, string> };
 
-let state: State = { ...defaults, images: {} };
+const initial: State = { ...defaults, images: {} };
+let state: State = initial;
 const listeners = new Set<() => void>();
 let started = false;
 
@@ -88,7 +89,7 @@ export function useSiteContent(): State {
       return () => listeners.delete(cb);
     },
     () => state,
-    () => ({ ...defaults, images: {} }) as State,
+    () => initial,
   );
 }
 
