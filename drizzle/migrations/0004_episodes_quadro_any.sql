@@ -1,0 +1,1 @@
+ALTER TABLE public.episodes DROP CONSTRAINT IF EXISTS episodes_quadro_check;
