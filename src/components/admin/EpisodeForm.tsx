@@ -37,6 +37,7 @@ export function EpisodeForm({ episode }: { episode?: EpisodeRow }) {
   const [error, setError] = useState("");
   const [ok, setOk] = useState("");
   const [busy, setBusy] = useState(false);
+  const custom = useCustomQuadros().list;
 
   useEffect(() => {
     if (episode?.cover_url) resolveCover(episode.cover_url).then(setPreview);

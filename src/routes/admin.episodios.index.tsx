@@ -19,6 +19,7 @@ export const Route = createFileRoute("/admin/episodios/")({
 });
 
 function EpisodesAdmin() {
+  const quadroName = useQuadroName();
   const { salvo } = Route.useSearch();
   const qc = useQueryClient();
   const { data = [], isLoading } = useQuery(adminEpisodesQuery);
