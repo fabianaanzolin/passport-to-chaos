@@ -65,7 +65,7 @@ export type Episode = {
   /** Full description written in the admin. */
   longDescription?: string | undefined;
   date: string;
-  quadro: QuadroSlug;
+  quadro: string;
   categories: string[];
   spotifyUrl: string;
   youtubeUrl?: string | undefined;

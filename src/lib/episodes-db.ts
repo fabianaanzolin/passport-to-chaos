@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
-import { episodes as staticEpisodes, type Episode, type QuadroSlug } from "./content";
+import { episodes as staticEpisodes, type Episode } from "./content";
 import { spotifyUrl } from "./site";
 
 export type EpisodeRow = Tables<"episodes">;
@@ -44,7 +44,7 @@ async function rowToEpisode(row: EpisodeRow): Promise<Episode> {
     description: row.short_description ?? undefined,
     longDescription: row.description ?? undefined,
     date: formatEpisodeDate(row.published_on),
-    quadro: row.quadro as QuadroSlug,
+    quadro: row.quadro,
     categories: known?.categories ?? [],
     spotifyUrl: row.spotify_url || spotifyUrl,
     youtubeUrl: row.youtube_url ?? undefined,
