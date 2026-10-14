@@ -15,3 +15,4 @@
 - Public episode pages start from the built-in list in `src/lib/content.ts` and swap in published rows from the database in the browser — keeps pages prerendered and indexable.
 - Episode covers live in a private bucket and are shown through signed links — the workspace blocks public buckets.
 - Every admin path must be listed in the prerender pages in `vite.config.ts` — otherwise direct links 404 on GitHub Pages.
+- Editable site texts, Quadros, profile and official links live as one JSON row per block in `site_content`, read in the browser through `src/lib/site-content.ts` with the current texts as built-in defaults — pages stay prerendered and fall back safely if nothing was saved.
