@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageIntro, PageShell, SpotifyIcon, StoryInvite } from "@/components/site/SiteChrome";
 import { EpisodeCard, episodeGridClass } from "@/components/site/EpisodeCard";
 import { usePublishedEpisodes } from "@/lib/episodes-db";
-import { pageMeta, spotifyUrl } from "@/lib/site";
+import { pageMeta } from "@/lib/site";
+import { useLinks } from "@/lib/site-content";
 
 export const Route = createFileRoute("/episodios/")({
   head: () => ({
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/episodios/")({
 });
 
 function EpisodesPage() {
+  const { spotify } = useLinks();
   const { episodes } = usePublishedEpisodes();
   return (
     <PageShell>
@@ -27,7 +29,7 @@ function EpisodesPage() {
           <span className="text-accent">E agora você vai ouvir.</span>
         </p>
         <a
-          href={spotifyUrl}
+          href={spotify}
           target="_blank"
           rel="noreferrer"
           aria-label="Ouça Passaporte para o Caos no Spotify"

@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Send } from "lucide-react";
 import { PageShell, StoryNotice } from "@/components/site/SiteChrome";
-import { contactEmail, images, pageMeta, storyMailto } from "@/lib/site";
+import { images, pageMeta } from "@/lib/site";
+import { useLinks, useSiteContent } from "@/lib/site-content";
 
 export const Route = createFileRoute("/conte-sua-historia")({
   head: () => ({
@@ -14,6 +15,8 @@ export const Route = createFileRoute("/conte-sua-historia")({
 });
 
 function ContePage() {
+  const c = useSiteContent();
+  const { email: contactEmail, storyMailto } = useLinks();
   return (
     <PageShell>
       <section className="relative mt-8 w-full overflow-hidden">
@@ -31,10 +34,9 @@ function ContePage() {
             <h1 className="font-display text-[clamp(2.8rem,7vw,5rem)] leading-[0.92] font-semibold [text-shadow:0_2px_18px_color-mix(in_oklab,black_60%,transparent)]">
               Conte sua história
             </h1>
+            <p className="mt-4 font-display text-2xl italic sm:text-3xl">{c.historia.title}</p>
             <p className="mt-6 font-sans text-base leading-7 text-primary-foreground/90 sm:text-lg sm:leading-8 [text-shadow:0_1px_10px_color-mix(in_oklab,black_55%,transparent)]">
-              Você viveu uma história que parece mentira? Um perrengue inesquecível? Uma situação
-              absurda a bordo? Um encontro que saiu completamente do roteiro? Então talvez essa
-              história pertença ao Passaporte para o Caos.
+              {c.historia.text}
             </p>
             <div className="mt-8 flex flex-col items-start gap-4">
               <a

@@ -1,14 +1,8 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Lock, Menu, X, Youtube } from "lucide-react";
-import {
-  facebookUrl,
-  images,
-  instagramUrl,
-  mainNav,
-  spotifyUrl,
-  youtubeUrl,
-} from "@/lib/site";
+import { images, mainNav } from "@/lib/site";
+import { useLinks } from "@/lib/site-content";
 
 export function SpotifyIcon({ className }: { className?: string }) {
   return (
@@ -18,14 +12,14 @@ export function SpotifyIcon({ className }: { className?: string }) {
   );
 }
 
-const socials = [
-  { href: spotifyUrl, label: "Spotify", Icon: SpotifyIcon },
-  { href: instagramUrl, label: "Instagram", Icon: Instagram },
-  { href: youtubeUrl, label: "YouTube", Icon: Youtube },
-  { href: facebookUrl, label: "Facebook", Icon: Facebook },
-];
-
 function SocialIcons({ className = "" }: { className?: string }) {
+  const l = useLinks();
+  const socials = [
+    { href: l.spotify, label: "Spotify", Icon: SpotifyIcon },
+    { href: l.instagram, label: "Instagram", Icon: Instagram },
+    { href: l.youtube, label: "YouTube", Icon: Youtube },
+    { href: l.facebook, label: "Facebook", Icon: Facebook },
+  ];
   return (
     <div className={`flex items-center gap-4 ${className}`}>
       {socials.map(({ href, label, Icon }) => (

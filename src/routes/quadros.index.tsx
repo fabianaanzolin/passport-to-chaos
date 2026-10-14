@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageIntro, PageShell, StoryInvite } from "@/components/site/SiteChrome";
-import { quadros } from "@/lib/content";
+import { useQuadro } from "@/lib/site-content";
 import { images, pageMeta } from "@/lib/site";
 
 export const Route = createFileRoute("/quadros/")({
@@ -46,8 +46,8 @@ function Postmark({ children, className = "" }: { children: string; className?: 
 }
 
 function QuadrosPage() {
-  const vida = quadros["vida-a-bordo"];
-  const turb = quadros.turbulencia;
+  const vida = useQuadro("vida-a-bordo");
+  const turb = useQuadro("turbulencia");
   return (
     <PageShell>
       <PageIntro eyebrow="Quadros" title="Dois jeitos de sair do roteiro.">
@@ -55,7 +55,7 @@ function QuadrosPage() {
       </PageIntro>
 
       {/* VIDA A BORDO — arte à esquerda, texto à direita */}
-      <section className="relative overflow-hidden border-t border-border bg-secondary">
+      <section hidden={!vida.active} className="relative overflow-hidden border-t border-border bg-secondary">
         <Waves className="pointer-events-none absolute bottom-0 left-0 h-10 w-full text-stamp/15" />
         <div className="relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-16 lg:py-20">
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none">
@@ -75,7 +75,7 @@ function QuadrosPage() {
             </p>
             <h2 className="mt-4 font-display text-[clamp(2.8rem,6vw,4.8rem)] leading-[0.9] font-semibold">{vida.name}</h2>
             <p className="mt-6 font-display text-[clamp(1.6rem,3vw,2.3rem)] italic leading-tight">
-              “O que acontece a bordo nem sempre fica a bordo.”
+              {vida.phrase}
             </p>
             <p className="mt-5 font-sans text-base leading-7 text-foreground sm:text-lg">
               Histórias de quem viveu o que os passageiros nunca viram.
@@ -92,7 +92,7 @@ function QuadrosPage() {
       </section>
 
       {/* TURBULÊNCIA — texto à esquerda, arte à direita */}
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+      <section hidden={!turb.active} className="relative overflow-hidden bg-primary text-primary-foreground">
         <FlightPath className="pointer-events-none absolute right-[8%] top-3 hidden w-[38%] text-accent/40 lg:block" />
         <div className="relative mx-auto grid max-w-[1312px] items-center gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-16 lg:py-20">
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:order-2 lg:max-w-none">
@@ -118,11 +118,11 @@ function QuadrosPage() {
               <span className="text-accent">.</span>
             </h2>
             <p className="mt-6 font-display text-[clamp(1.6rem,3vw,2.3rem)] italic leading-tight">
-              Histórias que começam normais. Até deixarem de ser.
+              {turb.phrase}
             </p>
             <p className="mt-4 font-display text-2xl italic text-accent">“Isso realmente aconteceu?”</p>
             <p className="mt-5 font-sans text-sm leading-6 text-primary-foreground/80 sm:text-base sm:leading-7">
-              Histórias de viagens, aviões, aeroportos, navios, hotéis e situações completamente fora do roteiro.
+              {turb.description}
             </p>
             <Link
               to="/quadros/turbulencia"
