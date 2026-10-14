@@ -21,7 +21,7 @@ export default defineConfig({
     // Every public page gets its own index.html so direct links work on GitHub Pages.
     pages: [
       "/", "/episodios", "/quadros", "/quadros/vida-a-bordo", "/quadros/turbulencia",
-      "/historias", "/conte-sua-historia", "/sobre", "/contato",
+      "/historias", "/abrir", "/conte-sua-historia", "/sobre", "/contato",
       "/episodios/002-toxico-a-bordo", "/episodios/001-saco-proibido",
       // Admin (renders in the browser only; listed so direct links and e-mail links open).
       "/admin", "/admin/episodios", "/admin/episodios/novo", "/admin/episodios/editar", "/admin/quadros", "/admin/conteudo",
