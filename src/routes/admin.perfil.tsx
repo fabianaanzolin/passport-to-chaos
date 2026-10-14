@@ -1,15 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ComingSoon, adminMeta } from "@/components/admin/admin-ui";
-import { images } from "@/lib/site";
+import { PageTitle, adminMeta } from "@/components/admin/admin-ui";
+import { ImageField, SaveBar, TextInput, useContentForm } from "@/components/admin/content-form";
 
 export const Route = createFileRoute("/admin/perfil")({
   head: () => ({ meta: adminMeta("Perfil") }),
-  component: () => (
-    <ComingSoon title="Perfil">
-      <div className="flex items-center gap-4">
-        <img src={images.adriele} alt="Adriele" className="size-16 rounded-full object-cover" />
-        <p><strong className="text-foreground">Adriele</strong><br />Em breve: edição de nome, bio e foto. A página Sobre continua como está até lá.</p>
-      </div>
-    </ComingSoon>
-  ),
+  component: Profile,
 });
+
+function Profile() {
+  const f = useContentForm("perfil", (v) => (v.name.trim() ? null : "Informe o nome."));
+  return (
+    <div>
+      <PageTitle title="Perfil" />
+      <form onSubmit={f.submit} className="max-w-3xl space-y-5 border border-border bg-background p-6">
+        <ImageField id="perfil-foto" label="Foto" value={f.value.photo} onChange={(photo) => f.set({ photo })} />
+        <TextInput id="perfil-nome" label="Nome" value={f.value.name} onChange={(name) => f.set({ name })} />
+        <TextInput id="perfil-bio" label="Biografia (linha em branco separa parágrafos)" value={f.value.bio} onChange={(bio) => f.set({ bio })} multiline />
+        <SaveBar busy={f.busy} msg={f.msg} />
+      </form>
+    </div>
+  );
+}
