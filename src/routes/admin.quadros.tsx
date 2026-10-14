@@ -163,7 +163,7 @@ function BuiltInForm({ slug, onClose }: { slug: "vida-a-bordo" | "turbulencia"; 
   );
 }
 
-function CustomForm({ quadro, onClose, onSaved }: { quadro?: QuadroRow; onClose: () => void; onSaved: (msg: string) => void }) {
+function CustomForm({ quadro, onClose, onSaved }: { quadro?: QuadroRow | undefined; onClose: () => void; onSaved: (msg: string) => void }) {
   const [v, setV] = useState({
     name: quadro?.name ?? "", short_description: quadro?.short_description ?? "", description: quadro?.description ?? "",
     phrase: quadro?.phrase ?? "", image: quadro?.image ?? "", status: quadro?.status ?? "active",
