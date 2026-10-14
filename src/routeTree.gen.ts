@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AbrirRouteImport } from './routes/abrir'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ConteSuaHistoriaRouteImport } from './routes/conte-sua-historia'
@@ -26,6 +27,7 @@ import { Route as AdminRecuperarSenhaRouteImport } from './routes/admin_.recuper
 import { Route as EpisodiosIndexRouteImport } from './routes/episodios.index'
 import { Route as EpisodiosSlugRouteImport } from './routes/episodios.$slug'
 import { Route as QuadrosIndexRouteImport } from './routes/quadros.index'
+import { Route as QuadrosSlugRouteImport } from './routes/quadros.$slug'
 import { Route as QuadrosTurbulenciaRouteImport } from './routes/quadros.turbulencia'
 import { Route as QuadrosVidaABordoRouteImport } from './routes/quadros.vida-a-bordo'
 import { Route as AdminEpisodiosIndexRouteImport } from './routes/admin.episodios.index'
@@ -35,6 +37,11 @@ import { Route as AdminEpisodiosNovoRouteImport } from './routes/admin.episodios
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AbrirRoute = AbrirRouteImport.update({
+  id: '/abrir',
+  path: '/abrir',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -117,6 +124,11 @@ const QuadrosIndexRoute = QuadrosIndexRouteImport.update({
   path: '/quadros/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuadrosSlugRoute = QuadrosSlugRouteImport.update({
+  id: '/quadros/$slug',
+  path: '/quadros/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuadrosTurbulenciaRoute = QuadrosTurbulenciaRouteImport.update({
   id: '/quadros/turbulencia',
   path: '/quadros/turbulencia',
@@ -145,6 +157,7 @@ const AdminEpisodiosNovoRoute = AdminEpisodiosNovoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/abrir': typeof AbrirRoute
   '/admin': typeof AdminRouteWithChildren
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
@@ -158,6 +171,7 @@ export interface FileRoutesByFullPath {
   '/admin/nova-senha': typeof AdminNovaSenhaRoute
   '/admin/recuperar-senha': typeof AdminRecuperarSenhaRoute
   '/episodios/$slug': typeof EpisodiosSlugRoute
+  '/quadros/$slug': typeof QuadrosSlugRoute
   '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
   '/admin/': typeof AdminIndexRoute
@@ -169,6 +183,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/abrir': typeof AbrirRoute
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
   '/historias': typeof HistoriasRoute
@@ -181,6 +196,7 @@ export interface FileRoutesByTo {
   '/admin/nova-senha': typeof AdminNovaSenhaRoute
   '/admin/recuperar-senha': typeof AdminRecuperarSenhaRoute
   '/episodios/$slug': typeof EpisodiosSlugRoute
+  '/quadros/$slug': typeof QuadrosSlugRoute
   '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
   '/admin': typeof AdminIndexRoute
@@ -193,6 +209,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/abrir': typeof AbrirRoute
   '/admin': typeof AdminRouteWithChildren
   '/contato': typeof ContatoRoute
   '/conte-sua-historia': typeof ConteSuaHistoriaRoute
@@ -206,6 +223,7 @@ export interface FileRoutesById {
   '/admin_/nova-senha': typeof AdminNovaSenhaRoute
   '/admin_/recuperar-senha': typeof AdminRecuperarSenhaRoute
   '/episodios/$slug': typeof EpisodiosSlugRoute
+  '/quadros/$slug': typeof QuadrosSlugRoute
   '/quadros/turbulencia': typeof QuadrosTurbulenciaRoute
   '/quadros/vida-a-bordo': typeof QuadrosVidaABordoRoute
   '/admin/': typeof AdminIndexRoute
@@ -219,6 +237,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/abrir'
     | '/admin'
     | '/contato'
     | '/conte-sua-historia'
@@ -232,6 +251,7 @@ export interface FileRouteTypes {
     | '/admin/nova-senha'
     | '/admin/recuperar-senha'
     | '/episodios/$slug'
+    | '/quadros/$slug'
     | '/quadros/turbulencia'
     | '/quadros/vida-a-bordo'
     | '/admin/'
@@ -243,6 +263,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/abrir'
     | '/contato'
     | '/conte-sua-historia'
     | '/historias'
@@ -255,6 +276,7 @@ export interface FileRouteTypes {
     | '/admin/nova-senha'
     | '/admin/recuperar-senha'
     | '/episodios/$slug'
+    | '/quadros/$slug'
     | '/quadros/turbulencia'
     | '/quadros/vida-a-bordo'
     | '/admin'
@@ -266,6 +288,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/abrir'
     | '/admin'
     | '/contato'
     | '/conte-sua-historia'
@@ -279,6 +302,7 @@ export interface FileRouteTypes {
     | '/admin_/nova-senha'
     | '/admin_/recuperar-senha'
     | '/episodios/$slug'
+    | '/quadros/$slug'
     | '/quadros/turbulencia'
     | '/quadros/vida-a-bordo'
     | '/admin/'
@@ -291,6 +315,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AbrirRoute: typeof AbrirRoute
   AdminRoute: typeof AdminRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   ConteSuaHistoriaRoute: typeof ConteSuaHistoriaRoute
@@ -299,6 +324,7 @@ export interface RootRouteChildren {
   AdminNovaSenhaRoute: typeof AdminNovaSenhaRoute
   AdminRecuperarSenhaRoute: typeof AdminRecuperarSenhaRoute
   EpisodiosSlugRoute: typeof EpisodiosSlugRoute
+  QuadrosSlugRoute: typeof QuadrosSlugRoute
   QuadrosTurbulenciaRoute: typeof QuadrosTurbulenciaRoute
   QuadrosVidaABordoRoute: typeof QuadrosVidaABordoRoute
   EpisodiosIndexRoute: typeof EpisodiosIndexRoute
@@ -312,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/abrir': {
+      id: '/abrir'
+      path: '/abrir'
+      fullPath: '/abrir'
+      preLoaderRoute: typeof AbrirRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -426,6 +459,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuadrosIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quadros/$slug': {
+      id: '/quadros/$slug'
+      path: '/quadros/$slug'
+      fullPath: '/quadros/$slug'
+      preLoaderRoute: typeof QuadrosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quadros/turbulencia': {
       id: '/quadros/turbulencia'
       path: '/quadros/turbulencia'
@@ -492,6 +532,7 @@ const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AbrirRoute: AbrirRoute,
   AdminRoute: AdminRouteWithChildren,
   ContatoRoute: ContatoRoute,
   ConteSuaHistoriaRoute: ConteSuaHistoriaRoute,
@@ -500,6 +541,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminNovaSenhaRoute: AdminNovaSenhaRoute,
   AdminRecuperarSenhaRoute: AdminRecuperarSenhaRoute,
   EpisodiosSlugRoute: EpisodiosSlugRoute,
+  QuadrosSlugRoute: QuadrosSlugRoute,
   QuadrosTurbulenciaRoute: QuadrosTurbulenciaRoute,
   QuadrosVidaABordoRoute: QuadrosVidaABordoRoute,
   EpisodiosIndexRoute: EpisodiosIndexRoute,

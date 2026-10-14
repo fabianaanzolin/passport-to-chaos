@@ -3,7 +3,8 @@ import { useState } from "react";
 import { ArrowLeft, Share2, Youtube } from "lucide-react";
 import { Eyebrow, PageShell, SpotifyIcon, StoryInvite } from "@/components/site/SiteChrome";
 import { EpisodeCard, EpisodeCover, episodeGridClass } from "@/components/site/EpisodeCard";
-import { episodes as staticEpisodes, quadros } from "@/lib/content";
+import { episodes as staticEpisodes } from "@/lib/content";
+import { useQuadroName } from "@/lib/quadros-db";
 import { usePublishedEpisodes } from "@/lib/episodes-db";
 
 export const Route = createFileRoute("/episodios/$slug")({
@@ -44,6 +45,7 @@ function EpisodePage() {
   const { episode: initial, slug } = Route.useLoaderData();
   const { episodes, loaded } = usePublishedEpisodes();
   const [copied, setCopied] = useState(false);
+  const quadroName = useQuadroName();
   const live = episodes.find((e) => e.slug === slug);
   const episode = loaded ? live : (live ?? initial);
   if (!episode) {
@@ -61,7 +63,7 @@ function EpisodePage() {
     );
   }
   const related = episodes.filter((e) => e.slug !== episode.slug).slice(0, 3);
-  const quadro = quadros[episode.quadro];
+  const quadro = { slug: episode.quadro, name: quadroName(episode.quadro) };
 
   const share = async () => {
     const url = window.location.href;
@@ -113,7 +115,7 @@ function EpisodePage() {
               <div>
                 <dt className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">Quadro</dt>
                 <dd className="mt-1">
-                  <Link to={quadro.slug === "turbulencia" ? "/quadros/turbulencia" : "/quadros/vida-a-bordo"} className="font-semibold text-stamp hover:text-accent">
+                  <Link to="/quadros/$slug" params={{ slug: quadro.slug }} className="font-semibold text-stamp hover:text-accent">
                     {quadro.name}
                   </Link>
                 </dd>

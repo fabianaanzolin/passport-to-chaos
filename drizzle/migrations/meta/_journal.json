@@ -22,6 +22,20 @@
       "when": 1791982056659,
       "tag": "0002_site_content",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791982739323,
+      "tag": "0003_create_quadros",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791982881721,
+      "tag": "0004_episodes_quadro_any",
+      "breakpoints": true
     }
   ]
 }

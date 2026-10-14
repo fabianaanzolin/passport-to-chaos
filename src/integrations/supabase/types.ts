@@ -68,6 +68,42 @@ export type Database = {
         }
         Relationships: []
       }
+      quadros: {
+        Row: {
+          created_at: string
+          description: string
+          image: string
+          name: string
+          phrase: string
+          short_description: string
+          slug: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          image?: string
+          name: string
+          phrase?: string
+          short_description?: string
+          slug: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          image?: string
+          name?: string
+          phrase?: string
+          short_description?: string
+          slug?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_content: {
         Row: {
           data: Json

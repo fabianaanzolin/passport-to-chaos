@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Eye, Pencil, Plus, Star, Trash2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { formatEpisodeDate, resolveCover, type EpisodeRow } from "@/lib/episodes-db";
-import { quadros, type QuadroSlug } from "@/lib/content";
+import { useQuadroName } from "@/lib/quadros-db";
 import { adminEpisodesQuery, StatusBadge } from "@/components/admin/episodes-admin";
 import { Notice, PageTitle, adminMeta, primaryBtn } from "@/components/admin/admin-ui";
 import {
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/admin/episodios/")({
 });
 
 function EpisodesAdmin() {
+  const quadroName = useQuadroName();
   const { salvo } = Route.useSearch();
   const qc = useQueryClient();
   const { data = [], isLoading } = useQuery(adminEpisodesQuery);
@@ -75,7 +76,7 @@ function EpisodesAdmin() {
                   <td className="px-4 py-3"><Cover value={ep.cover_url} /></td>
                   <td className="px-4 py-3 font-bold">#{ep.number}</td>
                   <td className="px-4 py-3 font-display text-lg font-semibold">{ep.title}</td>
-                  <td className="px-4 py-3">{quadros[ep.quadro as QuadroSlug]?.name}</td>
+                  <td className="px-4 py-3">{quadroName(ep.quadro)}</td>
                   <td className="px-4 py-3 whitespace-nowrap">{formatEpisodeDate(ep.published_on) || "—"}</td>
                   <td className="px-4 py-3"><StatusBadge status={ep.status} /></td>
                   <td className="px-4 py-3">
