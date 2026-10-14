@@ -46,7 +46,7 @@ function Postmark({ children, className = "" }: { children: string; className?: 
 }
 
 function QuadrosPage() {
-  const vida = quadros["vida-a-bordo"];
+  const vida = useQuadro("vida-a-bordo");
   const turb = quadros.turbulencia;
   return (
     <PageShell>
@@ -75,7 +75,7 @@ function QuadrosPage() {
             </p>
             <h2 className="mt-4 font-display text-[clamp(2.8rem,6vw,4.8rem)] leading-[0.9] font-semibold">{vida.name}</h2>
             <p className="mt-6 font-display text-[clamp(1.6rem,3vw,2.3rem)] italic leading-tight">
-              “O que acontece a bordo nem sempre fica a bordo.”
+              {vida.phrase}
             </p>
             <p className="mt-5 font-sans text-base leading-7 text-foreground sm:text-lg">
               Histórias de quem viveu o que os passageiros nunca viram.
@@ -118,11 +118,11 @@ function QuadrosPage() {
               <span className="text-accent">.</span>
             </h2>
             <p className="mt-6 font-display text-[clamp(1.6rem,3vw,2.3rem)] italic leading-tight">
-              Histórias que começam normais. Até deixarem de ser.
+              {turb.phrase}
             </p>
             <p className="mt-4 font-display text-2xl italic text-accent">“Isso realmente aconteceu?”</p>
             <p className="mt-5 font-sans text-sm leading-6 text-primary-foreground/80 sm:text-base sm:leading-7">
-              Histórias de viagens, aviões, aeroportos, navios, hotéis e situações completamente fora do roteiro.
+              {turb.description}
             </p>
             <Link
               to="/quadros/turbulencia"

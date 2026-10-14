@@ -14,13 +14,13 @@ export const Route = createFileRoute("/contato")({
   component: ContatoPage,
 });
 
-const channels = [
+function ContatoPage() {
+  const { email: contactEmail, storyMailto, mail: mailtoWithSubject } = useLinks();
+  const channels = [
   { title: "Histórias", text: "Quer contar uma história que saiu do roteiro?", href: storyMailto },
   { title: "Contato geral", text: "Dúvidas, sugestões ou só um oi.", href: mailtoWithSubject("Contato — Passaporte para o Caos") },
   { title: "Publicidade e parcerias", text: "Para marcas e projetos que combinam com o caos.", href: mailtoWithSubject("Publicidade e parcerias — Passaporte para o Caos") },
-];
-
-function ContatoPage() {
+  ];
   return (
     <PageShell>
       <PageIntro eyebrow="Contato" title="Fale com a gente.">

@@ -16,6 +16,7 @@ export const Route = createFileRoute("/episodios/")({
 });
 
 function EpisodesPage() {
+  const { spotify } = useLinks();
   const { episodes } = usePublishedEpisodes();
   return (
     <PageShell>
