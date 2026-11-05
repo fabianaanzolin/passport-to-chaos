@@ -126,7 +126,7 @@ function Index() {
               <img
                 src="/hero-ancora.jpg"
                 alt="Arte do Passaporte para o Caos com âncora, microfone, avião e ondas"
-                className="aspect-square w-full object-contain"
+                className="aspect-square w-full object-contain p-[4%]"
               />
             </div>
 
