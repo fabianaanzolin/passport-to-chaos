@@ -124,9 +124,9 @@ function Index() {
 
             <div className="travel-frame">
               <img
-                src="/hero-ancora.jpg"
+                src="/hero-ancora.png"
                 alt="Arte do Passaporte para o Caos com âncora, microfone, avião e ondas"
-                className="aspect-square w-full object-contain p-[4%]"
+                className="aspect-square w-full object-contain p-[6%]"
               />
             </div>
 
